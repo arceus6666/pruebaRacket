@@ -8,7 +8,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="definiciones" upperBound="-1"
         eType="#//Definicion" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ejecuciones" upperBound="-1"
-        eType="#//Ejecucion" containment="true"/>
+        eType="#//Expresion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -17,13 +17,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Definicion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="args" eType="#//Argumento"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//Argumento"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operador" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value1" eType="#//Value"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value2" eType="#//Value"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valores" upperBound="-1"
+        eType="#//Expresion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Value"/>
   <eClassifiers xsi:type="ecore:EClass" name="RefValue" eSuperTypes="#//Value">
@@ -38,10 +36,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Argumento">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Ejecucion">
+  <eClassifiers xsi:type="ecore:EClass" name="Expresion">
     <eStructuralFeatures xsi:type="ecore:EReference" name="definiciones" unique="false"
         upperBound="-1" eType="#//Definicion"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parametros" upperBound="-1"
-        eType="#//Value" containment="true"/>
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

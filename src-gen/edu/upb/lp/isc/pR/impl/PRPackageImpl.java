@@ -5,7 +5,7 @@ package edu.upb.lp.isc.pR.impl;
 
 import edu.upb.lp.isc.pR.Argumento;
 import edu.upb.lp.isc.pR.Definicion;
-import edu.upb.lp.isc.pR.Ejecucion;
+import edu.upb.lp.isc.pR.Expresion;
 import edu.upb.lp.isc.pR.IntValue;
 import edu.upb.lp.isc.pR.PRFactory;
 import edu.upb.lp.isc.pR.PRPackage;
@@ -91,7 +91,7 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass ejecucionEClass = null;
+  private EClass expresionEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -281,19 +281,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDefinicion_Value1()
+  public EReference getDefinicion_Valores()
   {
     return (EReference)definicionEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDefinicion_Value2()
-  {
-    return (EReference)definicionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -391,9 +381,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getEjecucion()
+  public EClass getExpresion()
   {
-    return ejecucionEClass;
+    return expresionEClass;
   }
 
   /**
@@ -401,9 +391,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEjecucion_Definiciones()
+  public EReference getExpresion_Definiciones()
   {
-    return (EReference)ejecucionEClass.getEStructuralFeatures().get(0);
+    return (EReference)expresionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -411,9 +401,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEjecucion_Parametros()
+  public EReference getExpresion_Parametros()
   {
-    return (EReference)ejecucionEClass.getEStructuralFeatures().get(1);
+    return (EReference)expresionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -460,8 +450,7 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
     createEAttribute(definicionEClass, DEFINICION__NAME);
     createEReference(definicionEClass, DEFINICION__ARGS);
     createEAttribute(definicionEClass, DEFINICION__OPERADOR);
-    createEReference(definicionEClass, DEFINICION__VALUE1);
-    createEReference(definicionEClass, DEFINICION__VALUE2);
+    createEReference(definicionEClass, DEFINICION__VALORES);
 
     valueEClass = createEClass(VALUE);
 
@@ -477,9 +466,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
     argumentoEClass = createEClass(ARGUMENTO);
     createEAttribute(argumentoEClass, ARGUMENTO__NAME);
 
-    ejecucionEClass = createEClass(EJECUCION);
-    createEReference(ejecucionEClass, EJECUCION__DEFINICIONES);
-    createEReference(ejecucionEClass, EJECUCION__PARAMETROS);
+    expresionEClass = createEClass(EXPRESION);
+    createEReference(expresionEClass, EXPRESION__DEFINICIONES);
+    createEReference(expresionEClass, EXPRESION__PARAMETROS);
   }
 
   /**
@@ -520,7 +509,7 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
     initEAttribute(getPrograma_Name(), ecorePackage.getEString(), "name", null, 0, 1, Programa.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrograma_Variables(), this.getVariable(), null, "variables", null, 0, -1, Programa.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrograma_Definiciones(), this.getDefinicion(), null, "definiciones", null, 0, -1, Programa.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPrograma_Ejecuciones(), this.getEjecucion(), null, "ejecuciones", null, 0, -1, Programa.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrograma_Ejecuciones(), this.getExpresion(), null, "ejecuciones", null, 0, -1, Programa.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -528,10 +517,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
 
     initEClass(definicionEClass, Definicion.class, "Definicion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDefinicion_Name(), ecorePackage.getEString(), "name", null, 0, 1, Definicion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDefinicion_Args(), this.getArgumento(), null, "args", null, 0, 1, Definicion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefinicion_Args(), this.getArgumento(), null, "args", null, 0, -1, Definicion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDefinicion_Operador(), ecorePackage.getEString(), "operador", null, 0, 1, Definicion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDefinicion_Value1(), this.getValue(), null, "value1", null, 0, 1, Definicion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDefinicion_Value2(), this.getValue(), null, "value2", null, 0, 1, Definicion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefinicion_Valores(), this.getExpresion(), null, "valores", null, 0, -1, Definicion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -547,9 +535,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
     initEClass(argumentoEClass, Argumento.class, "Argumento", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getArgumento_Name(), ecorePackage.getEString(), "name", null, 0, 1, Argumento.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(ejecucionEClass, Ejecucion.class, "Ejecucion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEjecucion_Definiciones(), this.getDefinicion(), null, "definiciones", null, 0, -1, Ejecucion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEjecucion_Parametros(), this.getValue(), null, "parametros", null, 0, -1, Ejecucion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(expresionEClass, Expresion.class, "Expresion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExpresion_Definiciones(), this.getDefinicion(), null, "definiciones", null, 0, -1, Expresion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpresion_Parametros(), ecorePackage.getEObject(), null, "parametros", null, 0, -1, Expresion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

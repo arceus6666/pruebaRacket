@@ -116,9 +116,9 @@ public class PRAdapterFactory extends AdapterFactoryImpl
         return createArgumentoAdapter();
       }
       @Override
-      public Adapter caseEjecucion(Ejecucion object)
+      public Adapter caseExpresion(Expresion object)
       {
-        return createEjecucionAdapter();
+        return createExpresionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -263,16 +263,16 @@ public class PRAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.Ejecucion <em>Ejecucion</em>}'.
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.Expresion <em>Expresion</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see edu.upb.lp.isc.pR.Ejecucion
+   * @see edu.upb.lp.isc.pR.Expresion
    * @generated
    */
-  public Adapter createEjecucionAdapter()
+  public Adapter createExpresionAdapter()
   {
     return null;
   }

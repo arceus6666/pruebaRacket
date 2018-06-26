@@ -6,7 +6,7 @@ package edu.upb.lp.isc.serializer;
 import com.google.inject.Inject;
 import edu.upb.lp.isc.pR.Argumento;
 import edu.upb.lp.isc.pR.Definicion;
-import edu.upb.lp.isc.pR.Ejecucion;
+import edu.upb.lp.isc.pR.Expresion;
 import edu.upb.lp.isc.pR.IntValue;
 import edu.upb.lp.isc.pR.PRPackage;
 import edu.upb.lp.isc.pR.Programa;
@@ -45,8 +45,8 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case PRPackage.DEFINICION:
 				sequence_Definicion(context, (Definicion) semanticObject); 
 				return; 
-			case PRPackage.EJECUCION:
-				sequence_Ejecucion(context, (Ejecucion) semanticObject); 
+			case PRPackage.EXPRESION:
+				sequence_Expresion(context, (Expresion) semanticObject); 
 				return; 
 			case PRPackage.INT_VALUE:
 				sequence_IntValue(context, (IntValue) semanticObject); 
@@ -91,39 +91,21 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Definicion returns Definicion
 	 *
 	 * Constraint:
-	 *     (name=ID args=Argumento operador=Operador value1=Value value2=Value)
+	 *     (name=ID args+=Argumento* operador=Operador valores+=Expresion+)
 	 */
 	protected void sequence_Definicion(ISerializationContext context, Definicion semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.DEFINICION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.DEFINICION__NAME));
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.DEFINICION__ARGS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.DEFINICION__ARGS));
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.DEFINICION__OPERADOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.DEFINICION__OPERADOR));
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.DEFINICION__VALUE1) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.DEFINICION__VALUE1));
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.DEFINICION__VALUE2) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.DEFINICION__VALUE2));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDefinicionAccess().getNameIDTerminalRuleCall_4_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getDefinicionAccess().getArgsArgumentoParserRuleCall_5_0(), semanticObject.getArgs());
-		feeder.accept(grammarAccess.getDefinicionAccess().getOperadorOperadorParserRuleCall_8_0(), semanticObject.getOperador());
-		feeder.accept(grammarAccess.getDefinicionAccess().getValue1ValueParserRuleCall_9_0(), semanticObject.getValue1());
-		feeder.accept(grammarAccess.getDefinicionAccess().getValue2ValueParserRuleCall_10_0(), semanticObject.getValue2());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Ejecucion returns Ejecucion
+	 *     Expresion returns Expresion
 	 *
 	 * Constraint:
-	 *     (definiciones+=[Definicion|ID] parametros+=Value*)
+	 *     (definiciones+=[Definicion|ID] (parametros+=Value | parametros+=Expresion)*)
 	 */
-	protected void sequence_Ejecucion(ISerializationContext context, Ejecucion semanticObject) {
+	protected void sequence_Expresion(ISerializationContext context, Expresion semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -152,7 +134,7 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Programa returns Programa
 	 *
 	 * Constraint:
-	 *     (name=ID variables+=Variable* definiciones+=Definicion* ejecuciones+=Ejecucion*)
+	 *     (name=ID variables+=Variable* definiciones+=Definicion* ejecuciones+=Expresion*)
 	 */
 	protected void sequence_Programa(ISerializationContext context, Programa semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

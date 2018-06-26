@@ -4,7 +4,7 @@
 package edu.upb.lp.isc.pR.impl;
 
 import edu.upb.lp.isc.pR.Definicion;
-import edu.upb.lp.isc.pR.Ejecucion;
+import edu.upb.lp.isc.pR.Expresion;
 import edu.upb.lp.isc.pR.PRPackage;
 import edu.upb.lp.isc.pR.Programa;
 import edu.upb.lp.isc.pR.Variable;
@@ -91,7 +91,7 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
    * @generated
    * @ordered
    */
-  protected EList<Ejecucion> ejecuciones;
+  protected EList<Expresion> ejecuciones;
 
   /**
    * <!-- begin-user-doc -->
@@ -170,11 +170,11 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Ejecucion> getEjecuciones()
+  public EList<Expresion> getEjecuciones()
   {
     if (ejecuciones == null)
     {
-      ejecuciones = new EObjectContainmentEList<Ejecucion>(Ejecucion.class, this, PRPackage.PROGRAMA__EJECUCIONES);
+      ejecuciones = new EObjectContainmentEList<Expresion>(Expresion.class, this, PRPackage.PROGRAMA__EJECUCIONES);
     }
     return ejecuciones;
   }
@@ -245,7 +245,7 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
         return;
       case PRPackage.PROGRAMA__EJECUCIONES:
         getEjecuciones().clear();
-        getEjecuciones().addAll((Collection<? extends Ejecucion>)newValue);
+        getEjecuciones().addAll((Collection<? extends Expresion>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

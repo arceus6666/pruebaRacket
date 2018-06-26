@@ -96,13 +96,13 @@ public interface PRFactory extends EFactory
   Argumento createArgumento();
 
   /**
-   * Returns a new object of class '<em>Ejecucion</em>'.
+   * Returns a new object of class '<em>Expresion</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ejecucion</em>'.
+   * @return a new object of class '<em>Expresion</em>'.
    * @generated
    */
-  Ejecucion createEjecucion();
+  Expresion createExpresion();
 
   /**
    * Returns the package supported by this factory.

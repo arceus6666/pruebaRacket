@@ -132,10 +132,10 @@ public class PRSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PRPackage.EJECUCION:
+      case PRPackage.EXPRESION:
       {
-        Ejecucion ejecucion = (Ejecucion)theEObject;
-        T result = caseEjecucion(ejecucion);
+        Expresion expresion = (Expresion)theEObject;
+        T result = caseExpresion(expresion);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -272,17 +272,17 @@ public class PRSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Ejecucion</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Expresion</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Ejecucion</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Expresion</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEjecucion(Ejecucion object)
+  public T caseExpresion(Expresion object)
   {
     return null;
   }

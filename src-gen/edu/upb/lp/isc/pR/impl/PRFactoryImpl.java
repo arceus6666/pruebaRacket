@@ -73,7 +73,7 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
       case PRPackage.STRING_VALUE: return createStringValue();
       case PRPackage.INT_VALUE: return createIntValue();
       case PRPackage.ARGUMENTO: return createArgumento();
-      case PRPackage.EJECUCION: return createEjecucion();
+      case PRPackage.EXPRESION: return createExpresion();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -172,10 +172,10 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Ejecucion createEjecucion()
+  public Expresion createExpresion()
   {
-    EjecucionImpl ejecucion = new EjecucionImpl();
-    return ejecucion;
+    ExpresionImpl expresion = new ExpresionImpl();
+    return expresion;
   }
 
   /**

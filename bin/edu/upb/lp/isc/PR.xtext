@@ -7,7 +7,7 @@ Programa:
 	';'name=ID
 	(variables+=Variable)*	
 	(definiciones+=Definicion)*
-	(ejecuciones+=Ejecucion)*
+	('?' ejecuciones+=Expresion)*
 	
 ;
 
@@ -15,20 +15,26 @@ Programa:
 Variable:
 	{Variable}
 	//(define id expr)
-	'(''define' name =ID value=Value/* | STRING | 'TRUE' | 'FALSE'*/')'
+	'(''define' name=ID value=Value/* | STRING | 'TRUE' | 'FALSE'*/')'
 ;
 
 Definicion:
 	{Definicion}
 	//(define (head args) body ...+)
 	//value = (STRING | 'TRUE' | 'FALSE')
-	'(''define''('name/*head*/=ID args=Argumento')'
-		/*body*/'('operador=Operador value1=Value value2=Value')'
+	'(''define''('name=ID (args+=Argumento)*')'
+		'('operador=Operador (valores+=Expresion)+')'
 	')'
 ;
 
 Value: RefValue | StringValue | IntValue;
 
+Expresion:
+	(IntExpr | StringExpr | BooleanExpr | 
+	RefVariable | IfExpr | CallExpr)
+;
+
+//Staticos
 RefValue:
 	ref = [Argumento]
 ;
@@ -45,9 +51,58 @@ Argumento:
 	name=ID
 ;
 
-Ejecucion:
-	'?''('definiciones+=[Definicion] parametros+=Value*')'
+IntExpr:
+	IntValue | Sum | Mult | Res | Div
 ;
+
+Sum:
+	{Sum}
+	'(''+' value+=IntExpr*')'
+;
+
+Mult:
+	{Mult}
+	'(''*' value+=IntExpr*')'
+;
+
+Res:
+	{Res}
+	'(''-' value+=IntExpr*')'
+;
+
+Div:
+	{Div}
+	'(''/' value1=IntExpr value2=IntExpr')'
+;
+
+StringExpr:
+	str = StringValue
+;
+
+BooleanExpr:
+	{BooleanExpr}
+	('true' | 'false')
+;
+
+
+//////////////
+
+CallExpr:
+	'('definiciones+=[Definicion] parametros+=(Value| Expresion)*')'
+;
+
+
+RefVariable:
+	ref = [Variable]
+;
+
+IfExpr:
+	{IfExpr}
+	//TODO hacer un if
+	'TODO'
+;
+
+
 
 Operador:
 	'+'|'-'|'*'|'/'

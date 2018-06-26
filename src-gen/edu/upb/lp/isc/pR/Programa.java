@@ -88,7 +88,7 @@ public interface Programa extends EObject
 
   /**
    * Returns the value of the '<em><b>Ejecuciones</b></em>' containment reference list.
-   * The list contents are of type {@link edu.upb.lp.isc.pR.Ejecucion}.
+   * The list contents are of type {@link edu.upb.lp.isc.pR.Expresion}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Ejecuciones</em>' containment reference list isn't clear,
@@ -100,6 +100,6 @@ public interface Programa extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Ejecucion> getEjecuciones();
+  EList<Expresion> getEjecuciones();
 
 } // Programa
