@@ -42,13 +42,13 @@ public interface PRFactory extends EFactory
   Variable createVariable();
 
   /**
-   * Returns a new object of class '<em>Expresion</em>'.
+   * Returns a new object of class '<em>Definicion</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expresion</em>'.
+   * @return a new object of class '<em>Definicion</em>'.
    * @generated
    */
-  Expresion createExpresion();
+  Definicion createDefinicion();
 
   /**
    * Returns a new object of class '<em>Value</em>'.
@@ -96,22 +96,13 @@ public interface PRFactory extends EFactory
   Argumento createArgumento();
 
   /**
-   * Returns a new object of class '<em>Funcion</em>'.
+   * Returns a new object of class '<em>Ejecucion</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Funcion</em>'.
+   * @return a new object of class '<em>Ejecucion</em>'.
    * @generated
    */
-  Funcion createFuncion();
-
-  /**
-   * Returns a new object of class '<em>Accion</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Accion</em>'.
-   * @generated
-   */
-  Accion createAccion();
+  Ejecucion createEjecucion();
 
   /**
    * Returns the package supported by this factory.

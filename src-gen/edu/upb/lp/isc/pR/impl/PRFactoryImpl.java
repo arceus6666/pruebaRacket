@@ -67,14 +67,13 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
     {
       case PRPackage.PROGRAMA: return createPrograma();
       case PRPackage.VARIABLE: return createVariable();
-      case PRPackage.EXPRESION: return createExpresion();
+      case PRPackage.DEFINICION: return createDefinicion();
       case PRPackage.VALUE: return createValue();
       case PRPackage.REF_VALUE: return createRefValue();
       case PRPackage.STRING_VALUE: return createStringValue();
       case PRPackage.INT_VALUE: return createIntValue();
       case PRPackage.ARGUMENTO: return createArgumento();
-      case PRPackage.FUNCION: return createFuncion();
-      case PRPackage.ACCION: return createAccion();
+      case PRPackage.EJECUCION: return createEjecucion();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -107,10 +106,10 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expresion createExpresion()
+  public Definicion createDefinicion()
   {
-    ExpresionImpl expresion = new ExpresionImpl();
-    return expresion;
+    DefinicionImpl definicion = new DefinicionImpl();
+    return definicion;
   }
 
   /**
@@ -173,21 +172,10 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Funcion createFuncion()
+  public Ejecucion createEjecucion()
   {
-    FuncionImpl funcion = new FuncionImpl();
-    return funcion;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Accion createAccion()
-  {
-    AccionImpl accion = new AccionImpl();
-    return accion;
+    EjecucionImpl ejecucion = new EjecucionImpl();
+    return ejecucion;
   }
 
   /**

@@ -86,9 +86,9 @@ public class PRAdapterFactory extends AdapterFactoryImpl
         return createVariableAdapter();
       }
       @Override
-      public Adapter caseExpresion(Expresion object)
+      public Adapter caseDefinicion(Definicion object)
       {
-        return createExpresionAdapter();
+        return createDefinicionAdapter();
       }
       @Override
       public Adapter caseValue(Value object)
@@ -116,14 +116,9 @@ public class PRAdapterFactory extends AdapterFactoryImpl
         return createArgumentoAdapter();
       }
       @Override
-      public Adapter caseFuncion(Funcion object)
+      public Adapter caseEjecucion(Ejecucion object)
       {
-        return createFuncionAdapter();
-      }
-      @Override
-      public Adapter caseAccion(Accion object)
-      {
-        return createAccionAdapter();
+        return createEjecucionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -178,16 +173,16 @@ public class PRAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.Expresion <em>Expresion</em>}'.
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.Definicion <em>Definicion</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see edu.upb.lp.isc.pR.Expresion
+   * @see edu.upb.lp.isc.pR.Definicion
    * @generated
    */
-  public Adapter createExpresionAdapter()
+  public Adapter createDefinicionAdapter()
   {
     return null;
   }
@@ -268,31 +263,16 @@ public class PRAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.Funcion <em>Funcion</em>}'.
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.Ejecucion <em>Ejecucion</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see edu.upb.lp.isc.pR.Funcion
+   * @see edu.upb.lp.isc.pR.Ejecucion
    * @generated
    */
-  public Adapter createFuncionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.Accion <em>Accion</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see edu.upb.lp.isc.pR.Accion
-   * @generated
-   */
-  public Adapter createAccionAdapter()
+  public Adapter createEjecucionAdapter()
   {
     return null;
   }

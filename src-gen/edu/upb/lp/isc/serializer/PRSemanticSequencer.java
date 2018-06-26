@@ -4,10 +4,9 @@
 package edu.upb.lp.isc.serializer;
 
 import com.google.inject.Inject;
-import edu.upb.lp.isc.pR.Accion;
 import edu.upb.lp.isc.pR.Argumento;
-import edu.upb.lp.isc.pR.Expresion;
-import edu.upb.lp.isc.pR.Funcion;
+import edu.upb.lp.isc.pR.Definicion;
+import edu.upb.lp.isc.pR.Ejecucion;
 import edu.upb.lp.isc.pR.IntValue;
 import edu.upb.lp.isc.pR.PRPackage;
 import edu.upb.lp.isc.pR.Programa;
@@ -40,17 +39,14 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == PRPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case PRPackage.ACCION:
-				sequence_Accion(context, (Accion) semanticObject); 
-				return; 
 			case PRPackage.ARGUMENTO:
 				sequence_Argumento(context, (Argumento) semanticObject); 
 				return; 
-			case PRPackage.EXPRESION:
-				sequence_Expresion(context, (Expresion) semanticObject); 
+			case PRPackage.DEFINICION:
+				sequence_Definicion(context, (Definicion) semanticObject); 
 				return; 
-			case PRPackage.FUNCION:
-				sequence_Funcion(context, (Funcion) semanticObject); 
+			case PRPackage.EJECUCION:
+				sequence_Ejecucion(context, (Ejecucion) semanticObject); 
 				return; 
 			case PRPackage.INT_VALUE:
 				sequence_IntValue(context, (IntValue) semanticObject); 
@@ -74,30 +70,6 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Accion returns Accion
-	 *
-	 * Constraint:
-	 *     (operador=Operador objeto1=[Variable|ID] objeto2=[Variable|ID])
-	 */
-	protected void sequence_Accion(ISerializationContext context, Accion semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.ACCION__OPERADOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.ACCION__OPERADOR));
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.ACCION__OBJETO1) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.ACCION__OBJETO1));
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.ACCION__OBJETO2) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.ACCION__OBJETO2));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAccionAccess().getOperadorOperadorParserRuleCall_1_0(), semanticObject.getOperador());
-		feeder.accept(grammarAccess.getAccionAccess().getObjeto1VariableIDTerminalRuleCall_2_0_1(), semanticObject.eGet(PRPackage.Literals.ACCION__OBJETO1, false));
-		feeder.accept(grammarAccess.getAccionAccess().getObjeto2VariableIDTerminalRuleCall_3_0_1(), semanticObject.eGet(PRPackage.Literals.ACCION__OBJETO2, false));
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Argumento returns Argumento
 	 *
 	 * Constraint:
@@ -116,42 +88,42 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Expresion returns Expresion
+	 *     Definicion returns Definicion
 	 *
 	 * Constraint:
 	 *     (name=ID args=Argumento operador=Operador value1=Value value2=Value)
 	 */
-	protected void sequence_Expresion(ISerializationContext context, Expresion semanticObject) {
+	protected void sequence_Definicion(ISerializationContext context, Definicion semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.EXPRESION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.EXPRESION__NAME));
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.EXPRESION__ARGS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.EXPRESION__ARGS));
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.EXPRESION__OPERADOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.EXPRESION__OPERADOR));
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.EXPRESION__VALUE1) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.EXPRESION__VALUE1));
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.EXPRESION__VALUE2) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.EXPRESION__VALUE2));
+			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.DEFINICION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.DEFINICION__NAME));
+			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.DEFINICION__ARGS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.DEFINICION__ARGS));
+			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.DEFINICION__OPERADOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.DEFINICION__OPERADOR));
+			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.DEFINICION__VALUE1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.DEFINICION__VALUE1));
+			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.DEFINICION__VALUE2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.DEFINICION__VALUE2));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExpresionAccess().getNameIDTerminalRuleCall_4_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getExpresionAccess().getArgsArgumentoParserRuleCall_5_0(), semanticObject.getArgs());
-		feeder.accept(grammarAccess.getExpresionAccess().getOperadorOperadorParserRuleCall_8_0(), semanticObject.getOperador());
-		feeder.accept(grammarAccess.getExpresionAccess().getValue1ValueParserRuleCall_9_0(), semanticObject.getValue1());
-		feeder.accept(grammarAccess.getExpresionAccess().getValue2ValueParserRuleCall_10_0(), semanticObject.getValue2());
+		feeder.accept(grammarAccess.getDefinicionAccess().getNameIDTerminalRuleCall_4_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDefinicionAccess().getArgsArgumentoParserRuleCall_5_0(), semanticObject.getArgs());
+		feeder.accept(grammarAccess.getDefinicionAccess().getOperadorOperadorParserRuleCall_8_0(), semanticObject.getOperador());
+		feeder.accept(grammarAccess.getDefinicionAccess().getValue1ValueParserRuleCall_9_0(), semanticObject.getValue1());
+		feeder.accept(grammarAccess.getDefinicionAccess().getValue2ValueParserRuleCall_10_0(), semanticObject.getValue2());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Funcion returns Funcion
+	 *     Ejecucion returns Ejecucion
 	 *
 	 * Constraint:
-	 *     (name=ID variable=[Variable|ID] acciones+=Accion)
+	 *     (definiciones+=[Definicion|ID] parametros+=Value*)
 	 */
-	protected void sequence_Funcion(ISerializationContext context, Funcion semanticObject) {
+	protected void sequence_Ejecucion(ISerializationContext context, Ejecucion semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -180,7 +152,7 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Programa returns Programa
 	 *
 	 * Constraint:
-	 *     ((variables+=Variable+ expresiones+=Expresion+) | expresiones+=Expresion+)?
+	 *     (name=ID variables+=Variable* definiciones+=Definicion* ejecuciones+=Ejecucion*)
 	 */
 	protected void sequence_Programa(ISerializationContext context, Programa semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -230,7 +202,7 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Variable returns Variable
 	 *
 	 * Constraint:
-	 *     (name=ID value=INT)
+	 *     (name=ID value=Value)
 	 */
 	protected void sequence_Variable(ISerializationContext context, Variable semanticObject) {
 		if (errorAcceptor != null) {
@@ -241,7 +213,7 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getVariableAccess().getNameIDTerminalRuleCall_3_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getVariableAccess().getValueINTTerminalRuleCall_4_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getVariableAccess().getValueValueParserRuleCall_4_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

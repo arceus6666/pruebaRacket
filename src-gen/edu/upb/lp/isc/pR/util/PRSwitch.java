@@ -87,10 +87,10 @@ public class PRSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PRPackage.EXPRESION:
+      case PRPackage.DEFINICION:
       {
-        Expresion expresion = (Expresion)theEObject;
-        T result = caseExpresion(expresion);
+        Definicion definicion = (Definicion)theEObject;
+        T result = caseDefinicion(definicion);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -132,17 +132,10 @@ public class PRSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PRPackage.FUNCION:
+      case PRPackage.EJECUCION:
       {
-        Funcion funcion = (Funcion)theEObject;
-        T result = caseFuncion(funcion);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PRPackage.ACCION:
-      {
-        Accion accion = (Accion)theEObject;
-        T result = caseAccion(accion);
+        Ejecucion ejecucion = (Ejecucion)theEObject;
+        T result = caseEjecucion(ejecucion);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -183,17 +176,17 @@ public class PRSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Expresion</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Definicion</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expresion</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Definicion</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExpresion(Expresion object)
+  public T caseDefinicion(Definicion object)
   {
     return null;
   }
@@ -279,33 +272,17 @@ public class PRSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Funcion</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Ejecucion</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Funcion</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Ejecucion</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFuncion(Funcion object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Accion</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Accion</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAccion(Accion object)
+  public T caseEjecucion(Ejecucion object)
   {
     return null;
   }

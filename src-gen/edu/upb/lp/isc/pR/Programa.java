@@ -16,8 +16,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link edu.upb.lp.isc.pR.Programa#getName <em>Name</em>}</li>
  *   <li>{@link edu.upb.lp.isc.pR.Programa#getVariables <em>Variables</em>}</li>
- *   <li>{@link edu.upb.lp.isc.pR.Programa#getExpresiones <em>Expresiones</em>}</li>
+ *   <li>{@link edu.upb.lp.isc.pR.Programa#getDefiniciones <em>Definiciones</em>}</li>
+ *   <li>{@link edu.upb.lp.isc.pR.Programa#getEjecuciones <em>Ejecuciones</em>}</li>
  * </ul>
  *
  * @see edu.upb.lp.isc.pR.PRPackage#getPrograma()
@@ -26,6 +28,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Programa extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see edu.upb.lp.isc.pR.PRPackage#getPrograma_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link edu.upb.lp.isc.pR.Programa#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
   /**
    * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
    * The list contents are of type {@link edu.upb.lp.isc.pR.Variable}.
@@ -43,19 +71,35 @@ public interface Programa extends EObject
   EList<Variable> getVariables();
 
   /**
-   * Returns the value of the '<em><b>Expresiones</b></em>' containment reference list.
-   * The list contents are of type {@link edu.upb.lp.isc.pR.Expresion}.
+   * Returns the value of the '<em><b>Definiciones</b></em>' containment reference list.
+   * The list contents are of type {@link edu.upb.lp.isc.pR.Definicion}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expresiones</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Definiciones</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expresiones</em>' containment reference list.
-   * @see edu.upb.lp.isc.pR.PRPackage#getPrograma_Expresiones()
+   * @return the value of the '<em>Definiciones</em>' containment reference list.
+   * @see edu.upb.lp.isc.pR.PRPackage#getPrograma_Definiciones()
    * @model containment="true"
    * @generated
    */
-  EList<Expresion> getExpresiones();
+  EList<Definicion> getDefiniciones();
+
+  /**
+   * Returns the value of the '<em><b>Ejecuciones</b></em>' containment reference list.
+   * The list contents are of type {@link edu.upb.lp.isc.pR.Ejecucion}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ejecuciones</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ejecuciones</em>' containment reference list.
+   * @see edu.upb.lp.isc.pR.PRPackage#getPrograma_Ejecuciones()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Ejecucion> getEjecuciones();
 
 } // Programa

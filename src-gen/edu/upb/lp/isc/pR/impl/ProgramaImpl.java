@@ -3,13 +3,15 @@
  */
 package edu.upb.lp.isc.pR.impl;
 
-import edu.upb.lp.isc.pR.Expresion;
+import edu.upb.lp.isc.pR.Definicion;
+import edu.upb.lp.isc.pR.Ejecucion;
 import edu.upb.lp.isc.pR.PRPackage;
 import edu.upb.lp.isc.pR.Programa;
 import edu.upb.lp.isc.pR.Variable;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -17,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -30,14 +33,36 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link edu.upb.lp.isc.pR.impl.ProgramaImpl#getName <em>Name</em>}</li>
  *   <li>{@link edu.upb.lp.isc.pR.impl.ProgramaImpl#getVariables <em>Variables</em>}</li>
- *   <li>{@link edu.upb.lp.isc.pR.impl.ProgramaImpl#getExpresiones <em>Expresiones</em>}</li>
+ *   <li>{@link edu.upb.lp.isc.pR.impl.ProgramaImpl#getDefiniciones <em>Definiciones</em>}</li>
+ *   <li>{@link edu.upb.lp.isc.pR.impl.ProgramaImpl#getEjecuciones <em>Ejecuciones</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ProgramaImpl extends MinimalEObjectImpl.Container implements Programa
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -49,14 +74,24 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
   protected EList<Variable> variables;
 
   /**
-   * The cached value of the '{@link #getExpresiones() <em>Expresiones</em>}' containment reference list.
+   * The cached value of the '{@link #getDefiniciones() <em>Definiciones</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpresiones()
+   * @see #getDefiniciones()
    * @generated
    * @ordered
    */
-  protected EList<Expresion> expresiones;
+  protected EList<Definicion> definiciones;
+
+  /**
+   * The cached value of the '{@link #getEjecuciones() <em>Ejecuciones</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEjecuciones()
+   * @generated
+   * @ordered
+   */
+  protected EList<Ejecucion> ejecuciones;
 
   /**
    * <!-- begin-user-doc -->
@@ -84,6 +119,29 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PRPackage.PROGRAMA__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Variable> getVariables()
   {
     if (variables == null)
@@ -98,13 +156,27 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expresion> getExpresiones()
+  public EList<Definicion> getDefiniciones()
   {
-    if (expresiones == null)
+    if (definiciones == null)
     {
-      expresiones = new EObjectContainmentEList<Expresion>(Expresion.class, this, PRPackage.PROGRAMA__EXPRESIONES);
+      definiciones = new EObjectContainmentEList<Definicion>(Definicion.class, this, PRPackage.PROGRAMA__DEFINICIONES);
     }
-    return expresiones;
+    return definiciones;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Ejecucion> getEjecuciones()
+  {
+    if (ejecuciones == null)
+    {
+      ejecuciones = new EObjectContainmentEList<Ejecucion>(Ejecucion.class, this, PRPackage.PROGRAMA__EJECUCIONES);
+    }
+    return ejecuciones;
   }
 
   /**
@@ -119,8 +191,10 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
     {
       case PRPackage.PROGRAMA__VARIABLES:
         return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
-      case PRPackage.PROGRAMA__EXPRESIONES:
-        return ((InternalEList<?>)getExpresiones()).basicRemove(otherEnd, msgs);
+      case PRPackage.PROGRAMA__DEFINICIONES:
+        return ((InternalEList<?>)getDefiniciones()).basicRemove(otherEnd, msgs);
+      case PRPackage.PROGRAMA__EJECUCIONES:
+        return ((InternalEList<?>)getEjecuciones()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -135,10 +209,14 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
   {
     switch (featureID)
     {
+      case PRPackage.PROGRAMA__NAME:
+        return getName();
       case PRPackage.PROGRAMA__VARIABLES:
         return getVariables();
-      case PRPackage.PROGRAMA__EXPRESIONES:
-        return getExpresiones();
+      case PRPackage.PROGRAMA__DEFINICIONES:
+        return getDefiniciones();
+      case PRPackage.PROGRAMA__EJECUCIONES:
+        return getEjecuciones();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -154,13 +232,20 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
   {
     switch (featureID)
     {
+      case PRPackage.PROGRAMA__NAME:
+        setName((String)newValue);
+        return;
       case PRPackage.PROGRAMA__VARIABLES:
         getVariables().clear();
         getVariables().addAll((Collection<? extends Variable>)newValue);
         return;
-      case PRPackage.PROGRAMA__EXPRESIONES:
-        getExpresiones().clear();
-        getExpresiones().addAll((Collection<? extends Expresion>)newValue);
+      case PRPackage.PROGRAMA__DEFINICIONES:
+        getDefiniciones().clear();
+        getDefiniciones().addAll((Collection<? extends Definicion>)newValue);
+        return;
+      case PRPackage.PROGRAMA__EJECUCIONES:
+        getEjecuciones().clear();
+        getEjecuciones().addAll((Collection<? extends Ejecucion>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -176,11 +261,17 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
   {
     switch (featureID)
     {
+      case PRPackage.PROGRAMA__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case PRPackage.PROGRAMA__VARIABLES:
         getVariables().clear();
         return;
-      case PRPackage.PROGRAMA__EXPRESIONES:
-        getExpresiones().clear();
+      case PRPackage.PROGRAMA__DEFINICIONES:
+        getDefiniciones().clear();
+        return;
+      case PRPackage.PROGRAMA__EJECUCIONES:
+        getEjecuciones().clear();
         return;
     }
     super.eUnset(featureID);
@@ -196,12 +287,33 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
   {
     switch (featureID)
     {
+      case PRPackage.PROGRAMA__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case PRPackage.PROGRAMA__VARIABLES:
         return variables != null && !variables.isEmpty();
-      case PRPackage.PROGRAMA__EXPRESIONES:
-        return expresiones != null && !expresiones.isEmpty();
+      case PRPackage.PROGRAMA__DEFINICIONES:
+        return definiciones != null && !definiciones.isEmpty();
+      case PRPackage.PROGRAMA__EJECUCIONES:
+        return ejecuciones != null && !ejecuciones.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //ProgramaImpl

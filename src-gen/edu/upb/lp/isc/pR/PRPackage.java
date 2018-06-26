@@ -68,22 +68,40 @@ public interface PRPackage extends EPackage
   int PROGRAMA = 0;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAMA__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Variables</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROGRAMA__VARIABLES = 0;
+  int PROGRAMA__VARIABLES = 1;
 
   /**
-   * The feature id for the '<em><b>Expresiones</b></em>' containment reference list.
+   * The feature id for the '<em><b>Definiciones</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROGRAMA__EXPRESIONES = 1;
+  int PROGRAMA__DEFINICIONES = 2;
+
+  /**
+   * The feature id for the '<em><b>Ejecuciones</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAMA__EJECUCIONES = 3;
 
   /**
    * The number of structural features of the '<em>Programa</em>' class.
@@ -92,7 +110,7 @@ public interface PRPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAMA_FEATURE_COUNT = 2;
+  int PROGRAMA_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.VariableImpl <em>Variable</em>}' class.
@@ -114,7 +132,7 @@ public interface PRPackage extends EPackage
   int VARIABLE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -132,14 +150,14 @@ public interface PRPackage extends EPackage
   int VARIABLE_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.ExpresionImpl <em>Expresion</em>}' class.
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.DefinicionImpl <em>Definicion</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see edu.upb.lp.isc.pR.impl.ExpresionImpl
-   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getExpresion()
+   * @see edu.upb.lp.isc.pR.impl.DefinicionImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getDefinicion()
    * @generated
    */
-  int EXPRESION = 2;
+  int DEFINICION = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -148,7 +166,7 @@ public interface PRPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESION__NAME = 0;
+  int DEFINICION__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Args</b></em>' containment reference.
@@ -157,7 +175,7 @@ public interface PRPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESION__ARGS = 1;
+  int DEFINICION__ARGS = 1;
 
   /**
    * The feature id for the '<em><b>Operador</b></em>' attribute.
@@ -166,7 +184,7 @@ public interface PRPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESION__OPERADOR = 2;
+  int DEFINICION__OPERADOR = 2;
 
   /**
    * The feature id for the '<em><b>Value1</b></em>' containment reference.
@@ -175,7 +193,7 @@ public interface PRPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESION__VALUE1 = 3;
+  int DEFINICION__VALUE1 = 3;
 
   /**
    * The feature id for the '<em><b>Value2</b></em>' containment reference.
@@ -184,16 +202,16 @@ public interface PRPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESION__VALUE2 = 4;
+  int DEFINICION__VALUE2 = 4;
 
   /**
-   * The number of structural features of the '<em>Expresion</em>' class.
+   * The number of structural features of the '<em>Definicion</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESION_FEATURE_COUNT = 5;
+  int DEFINICION_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.ValueImpl <em>Value</em>}' class.
@@ -327,96 +345,41 @@ public interface PRPackage extends EPackage
   int ARGUMENTO_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.FuncionImpl <em>Funcion</em>}' class.
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.EjecucionImpl <em>Ejecucion</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see edu.upb.lp.isc.pR.impl.FuncionImpl
-   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getFuncion()
+   * @see edu.upb.lp.isc.pR.impl.EjecucionImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getEjecucion()
    * @generated
    */
-  int FUNCION = 8;
+  int EJECUCION = 8;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Definiciones</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCION__NAME = 0;
+  int EJECUCION__DEFINICIONES = 0;
 
   /**
-   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * The feature id for the '<em><b>Parametros</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCION__VARIABLE = 1;
+  int EJECUCION__PARAMETROS = 1;
 
   /**
-   * The feature id for the '<em><b>Acciones</b></em>' containment reference list.
+   * The number of structural features of the '<em>Ejecucion</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCION__ACCIONES = 2;
-
-  /**
-   * The number of structural features of the '<em>Funcion</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCION_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.AccionImpl <em>Accion</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see edu.upb.lp.isc.pR.impl.AccionImpl
-   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getAccion()
-   * @generated
-   */
-  int ACCION = 9;
-
-  /**
-   * The feature id for the '<em><b>Operador</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACCION__OPERADOR = 0;
-
-  /**
-   * The feature id for the '<em><b>Objeto1</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACCION__OBJETO1 = 1;
-
-  /**
-   * The feature id for the '<em><b>Objeto2</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACCION__OBJETO2 = 2;
-
-  /**
-   * The number of structural features of the '<em>Accion</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACCION_FEATURE_COUNT = 3;
+  int EJECUCION_FEATURE_COUNT = 2;
 
 
   /**
@@ -430,6 +393,17 @@ public interface PRPackage extends EPackage
   EClass getPrograma();
 
   /**
+   * Returns the meta object for the attribute '{@link edu.upb.lp.isc.pR.Programa#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see edu.upb.lp.isc.pR.Programa#getName()
+   * @see #getPrograma()
+   * @generated
+   */
+  EAttribute getPrograma_Name();
+
+  /**
    * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.Programa#getVariables <em>Variables</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -441,15 +415,26 @@ public interface PRPackage extends EPackage
   EReference getPrograma_Variables();
 
   /**
-   * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.Programa#getExpresiones <em>Expresiones</em>}'.
+   * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.Programa#getDefiniciones <em>Definiciones</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expresiones</em>'.
-   * @see edu.upb.lp.isc.pR.Programa#getExpresiones()
+   * @return the meta object for the containment reference list '<em>Definiciones</em>'.
+   * @see edu.upb.lp.isc.pR.Programa#getDefiniciones()
    * @see #getPrograma()
    * @generated
    */
-  EReference getPrograma_Expresiones();
+  EReference getPrograma_Definiciones();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.Programa#getEjecuciones <em>Ejecuciones</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Ejecuciones</em>'.
+   * @see edu.upb.lp.isc.pR.Programa#getEjecuciones()
+   * @see #getPrograma()
+   * @generated
+   */
+  EReference getPrograma_Ejecuciones();
 
   /**
    * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Variable <em>Variable</em>}'.
@@ -473,80 +458,80 @@ public interface PRPackage extends EPackage
   EAttribute getVariable_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link edu.upb.lp.isc.pR.Variable#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.Variable#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
+   * @return the meta object for the containment reference '<em>Value</em>'.
    * @see edu.upb.lp.isc.pR.Variable#getValue()
    * @see #getVariable()
    * @generated
    */
-  EAttribute getVariable_Value();
+  EReference getVariable_Value();
 
   /**
-   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Expresion <em>Expresion</em>}'.
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Definicion <em>Definicion</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Expresion</em>'.
-   * @see edu.upb.lp.isc.pR.Expresion
+   * @return the meta object for class '<em>Definicion</em>'.
+   * @see edu.upb.lp.isc.pR.Definicion
    * @generated
    */
-  EClass getExpresion();
+  EClass getDefinicion();
 
   /**
-   * Returns the meta object for the attribute '{@link edu.upb.lp.isc.pR.Expresion#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link edu.upb.lp.isc.pR.Definicion#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see edu.upb.lp.isc.pR.Expresion#getName()
-   * @see #getExpresion()
+   * @see edu.upb.lp.isc.pR.Definicion#getName()
+   * @see #getDefinicion()
    * @generated
    */
-  EAttribute getExpresion_Name();
+  EAttribute getDefinicion_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.Expresion#getArgs <em>Args</em>}'.
+   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.Definicion#getArgs <em>Args</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Args</em>'.
-   * @see edu.upb.lp.isc.pR.Expresion#getArgs()
-   * @see #getExpresion()
+   * @see edu.upb.lp.isc.pR.Definicion#getArgs()
+   * @see #getDefinicion()
    * @generated
    */
-  EReference getExpresion_Args();
+  EReference getDefinicion_Args();
 
   /**
-   * Returns the meta object for the attribute '{@link edu.upb.lp.isc.pR.Expresion#getOperador <em>Operador</em>}'.
+   * Returns the meta object for the attribute '{@link edu.upb.lp.isc.pR.Definicion#getOperador <em>Operador</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Operador</em>'.
-   * @see edu.upb.lp.isc.pR.Expresion#getOperador()
-   * @see #getExpresion()
+   * @see edu.upb.lp.isc.pR.Definicion#getOperador()
+   * @see #getDefinicion()
    * @generated
    */
-  EAttribute getExpresion_Operador();
+  EAttribute getDefinicion_Operador();
 
   /**
-   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.Expresion#getValue1 <em>Value1</em>}'.
+   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.Definicion#getValue1 <em>Value1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Value1</em>'.
-   * @see edu.upb.lp.isc.pR.Expresion#getValue1()
-   * @see #getExpresion()
+   * @see edu.upb.lp.isc.pR.Definicion#getValue1()
+   * @see #getDefinicion()
    * @generated
    */
-  EReference getExpresion_Value1();
+  EReference getDefinicion_Value1();
 
   /**
-   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.Expresion#getValue2 <em>Value2</em>}'.
+   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.Definicion#getValue2 <em>Value2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Value2</em>'.
-   * @see edu.upb.lp.isc.pR.Expresion#getValue2()
-   * @see #getExpresion()
+   * @see edu.upb.lp.isc.pR.Definicion#getValue2()
+   * @see #getDefinicion()
    * @generated
    */
-  EReference getExpresion_Value2();
+  EReference getDefinicion_Value2();
 
   /**
    * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Value <em>Value</em>}'.
@@ -643,90 +628,36 @@ public interface PRPackage extends EPackage
   EAttribute getArgumento_Name();
 
   /**
-   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Funcion <em>Funcion</em>}'.
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Ejecucion <em>Ejecucion</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Funcion</em>'.
-   * @see edu.upb.lp.isc.pR.Funcion
+   * @return the meta object for class '<em>Ejecucion</em>'.
+   * @see edu.upb.lp.isc.pR.Ejecucion
    * @generated
    */
-  EClass getFuncion();
+  EClass getEjecucion();
 
   /**
-   * Returns the meta object for the attribute '{@link edu.upb.lp.isc.pR.Funcion#getName <em>Name</em>}'.
+   * Returns the meta object for the reference list '{@link edu.upb.lp.isc.pR.Ejecucion#getDefiniciones <em>Definiciones</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see edu.upb.lp.isc.pR.Funcion#getName()
-   * @see #getFuncion()
+   * @return the meta object for the reference list '<em>Definiciones</em>'.
+   * @see edu.upb.lp.isc.pR.Ejecucion#getDefiniciones()
+   * @see #getEjecucion()
    * @generated
    */
-  EAttribute getFuncion_Name();
+  EReference getEjecucion_Definiciones();
 
   /**
-   * Returns the meta object for the reference '{@link edu.upb.lp.isc.pR.Funcion#getVariable <em>Variable</em>}'.
+   * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.Ejecucion#getParametros <em>Parametros</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Variable</em>'.
-   * @see edu.upb.lp.isc.pR.Funcion#getVariable()
-   * @see #getFuncion()
+   * @return the meta object for the containment reference list '<em>Parametros</em>'.
+   * @see edu.upb.lp.isc.pR.Ejecucion#getParametros()
+   * @see #getEjecucion()
    * @generated
    */
-  EReference getFuncion_Variable();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.Funcion#getAcciones <em>Acciones</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Acciones</em>'.
-   * @see edu.upb.lp.isc.pR.Funcion#getAcciones()
-   * @see #getFuncion()
-   * @generated
-   */
-  EReference getFuncion_Acciones();
-
-  /**
-   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Accion <em>Accion</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Accion</em>'.
-   * @see edu.upb.lp.isc.pR.Accion
-   * @generated
-   */
-  EClass getAccion();
-
-  /**
-   * Returns the meta object for the attribute '{@link edu.upb.lp.isc.pR.Accion#getOperador <em>Operador</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operador</em>'.
-   * @see edu.upb.lp.isc.pR.Accion#getOperador()
-   * @see #getAccion()
-   * @generated
-   */
-  EAttribute getAccion_Operador();
-
-  /**
-   * Returns the meta object for the reference '{@link edu.upb.lp.isc.pR.Accion#getObjeto1 <em>Objeto1</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Objeto1</em>'.
-   * @see edu.upb.lp.isc.pR.Accion#getObjeto1()
-   * @see #getAccion()
-   * @generated
-   */
-  EReference getAccion_Objeto1();
-
-  /**
-   * Returns the meta object for the reference '{@link edu.upb.lp.isc.pR.Accion#getObjeto2 <em>Objeto2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Objeto2</em>'.
-   * @see edu.upb.lp.isc.pR.Accion#getObjeto2()
-   * @see #getAccion()
-   * @generated
-   */
-  EReference getAccion_Objeto2();
+  EReference getEjecucion_Parametros();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -762,6 +693,14 @@ public interface PRPackage extends EPackage
     EClass PROGRAMA = eINSTANCE.getPrograma();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROGRAMA__NAME = eINSTANCE.getPrograma_Name();
+
+    /**
      * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -770,12 +709,20 @@ public interface PRPackage extends EPackage
     EReference PROGRAMA__VARIABLES = eINSTANCE.getPrograma_Variables();
 
     /**
-     * The meta object literal for the '<em><b>Expresiones</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Definiciones</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PROGRAMA__EXPRESIONES = eINSTANCE.getPrograma_Expresiones();
+    EReference PROGRAMA__DEFINICIONES = eINSTANCE.getPrograma_Definiciones();
+
+    /**
+     * The meta object literal for the '<em><b>Ejecuciones</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROGRAMA__EJECUCIONES = eINSTANCE.getPrograma_Ejecuciones();
 
     /**
      * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.VariableImpl <em>Variable</em>}' class.
@@ -796,22 +743,22 @@ public interface PRPackage extends EPackage
     EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VARIABLE__VALUE = eINSTANCE.getVariable_Value();
+    EReference VARIABLE__VALUE = eINSTANCE.getVariable_Value();
 
     /**
-     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.ExpresionImpl <em>Expresion</em>}' class.
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.DefinicionImpl <em>Definicion</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see edu.upb.lp.isc.pR.impl.ExpresionImpl
-     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getExpresion()
+     * @see edu.upb.lp.isc.pR.impl.DefinicionImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getDefinicion()
      * @generated
      */
-    EClass EXPRESION = eINSTANCE.getExpresion();
+    EClass DEFINICION = eINSTANCE.getDefinicion();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -819,7 +766,7 @@ public interface PRPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXPRESION__NAME = eINSTANCE.getExpresion_Name();
+    EAttribute DEFINICION__NAME = eINSTANCE.getDefinicion_Name();
 
     /**
      * The meta object literal for the '<em><b>Args</b></em>' containment reference feature.
@@ -827,7 +774,7 @@ public interface PRPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESION__ARGS = eINSTANCE.getExpresion_Args();
+    EReference DEFINICION__ARGS = eINSTANCE.getDefinicion_Args();
 
     /**
      * The meta object literal for the '<em><b>Operador</b></em>' attribute feature.
@@ -835,7 +782,7 @@ public interface PRPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXPRESION__OPERADOR = eINSTANCE.getExpresion_Operador();
+    EAttribute DEFINICION__OPERADOR = eINSTANCE.getDefinicion_Operador();
 
     /**
      * The meta object literal for the '<em><b>Value1</b></em>' containment reference feature.
@@ -843,7 +790,7 @@ public interface PRPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESION__VALUE1 = eINSTANCE.getExpresion_Value1();
+    EReference DEFINICION__VALUE1 = eINSTANCE.getDefinicion_Value1();
 
     /**
      * The meta object literal for the '<em><b>Value2</b></em>' containment reference feature.
@@ -851,7 +798,7 @@ public interface PRPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESION__VALUE2 = eINSTANCE.getExpresion_Value2();
+    EReference DEFINICION__VALUE2 = eINSTANCE.getDefinicion_Value2();
 
     /**
      * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.ValueImpl <em>Value</em>}' class.
@@ -936,72 +883,30 @@ public interface PRPackage extends EPackage
     EAttribute ARGUMENTO__NAME = eINSTANCE.getArgumento_Name();
 
     /**
-     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.FuncionImpl <em>Funcion</em>}' class.
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.EjecucionImpl <em>Ejecucion</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see edu.upb.lp.isc.pR.impl.FuncionImpl
-     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getFuncion()
+     * @see edu.upb.lp.isc.pR.impl.EjecucionImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getEjecucion()
      * @generated
      */
-    EClass FUNCION = eINSTANCE.getFuncion();
+    EClass EJECUCION = eINSTANCE.getEjecucion();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Definiciones</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FUNCION__NAME = eINSTANCE.getFuncion_Name();
+    EReference EJECUCION__DEFINICIONES = eINSTANCE.getEjecucion_Definiciones();
 
     /**
-     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Parametros</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FUNCION__VARIABLE = eINSTANCE.getFuncion_Variable();
-
-    /**
-     * The meta object literal for the '<em><b>Acciones</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FUNCION__ACCIONES = eINSTANCE.getFuncion_Acciones();
-
-    /**
-     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.AccionImpl <em>Accion</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see edu.upb.lp.isc.pR.impl.AccionImpl
-     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getAccion()
-     * @generated
-     */
-    EClass ACCION = eINSTANCE.getAccion();
-
-    /**
-     * The meta object literal for the '<em><b>Operador</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ACCION__OPERADOR = eINSTANCE.getAccion_Operador();
-
-    /**
-     * The meta object literal for the '<em><b>Objeto1</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ACCION__OBJETO1 = eINSTANCE.getAccion_Objeto1();
-
-    /**
-     * The meta object literal for the '<em><b>Objeto2</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ACCION__OBJETO2 = eINSTANCE.getAccion_Objeto2();
+    EReference EJECUCION__PARAMETROS = eINSTANCE.getEjecucion_Parametros();
 
   }
 

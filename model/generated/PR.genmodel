@@ -7,19 +7,21 @@
   <genPackages prefix="PR" basePackage="edu.upb.lp.isc" disposableProviderFactory="true"
       fileExtensions="pr" ecorePackage="PR.ecore#/">
     <genClasses ecoreClass="PR.ecore#//Programa">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Programa/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Programa/variables"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Programa/expresiones"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Programa/definiciones"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Programa/ejecuciones"/>
     </genClasses>
     <genClasses ecoreClass="PR.ecore#//Variable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Variable/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Variable/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Variable/value"/>
     </genClasses>
-    <genClasses ecoreClass="PR.ecore#//Expresion">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Expresion/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Expresion/args"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Expresion/operador"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Expresion/value1"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Expresion/value2"/>
+    <genClasses ecoreClass="PR.ecore#//Definicion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Definicion/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Definicion/args"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Definicion/operador"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Definicion/value1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Definicion/value2"/>
     </genClasses>
     <genClasses ecoreClass="PR.ecore#//Value"/>
     <genClasses ecoreClass="PR.ecore#//RefValue">
@@ -34,15 +36,9 @@
     <genClasses ecoreClass="PR.ecore#//Argumento">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Argumento/name"/>
     </genClasses>
-    <genClasses ecoreClass="PR.ecore#//Funcion">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Funcion/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PR.ecore#//Funcion/variable"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Funcion/acciones"/>
-    </genClasses>
-    <genClasses ecoreClass="PR.ecore#//Accion">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Accion/operador"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PR.ecore#//Accion/objeto1"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PR.ecore#//Accion/objeto2"/>
+    <genClasses ecoreClass="PR.ecore#//Ejecucion">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PR.ecore#//Ejecucion/definiciones"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Ejecucion/parametros"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

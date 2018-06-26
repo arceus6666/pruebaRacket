@@ -2,16 +2,20 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pR" nsURI="http://www.upb.edu/lp/isc/PR" nsPrefix="pR">
   <eClassifiers xsi:type="ecore:EClass" name="Programa">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
         eType="#//Variable" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expresiones" upperBound="-1"
-        eType="#//Expresion" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definiciones" upperBound="-1"
+        eType="#//Definicion" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ejecuciones" upperBound="-1"
+        eType="#//Ejecucion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expresion">
+  <eClassifiers xsi:type="ecore:EClass" name="Definicion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="args" eType="#//Argumento"
         containment="true"/>
@@ -34,15 +38,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Argumento">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Funcion">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="acciones" upperBound="-1"
-        eType="#//Accion" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Accion">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operador" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="objeto1" eType="#//Variable"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="objeto2" eType="#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Ejecucion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definiciones" unique="false"
+        upperBound="-1" eType="#//Definicion"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parametros" upperBound="-1"
+        eType="#//Value" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
