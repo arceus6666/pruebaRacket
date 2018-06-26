@@ -4,7 +4,9 @@ generate pR "http://www.upb.edu/lp/isc/PR"
 
 Programa:
 	(variables+=Variable)*	
-	(expresiones+=Expresion)*
+	(definiciones+=Definicion)*
+	'?'(ejecuciones+=Ejecucion)*
+	
 ;
 
 
@@ -14,8 +16,8 @@ Variable:
 	'(''define' name =ID value=INT/* | STRING | 'TRUE' | 'FALSE'*/')'
 ;
 
-Expresion:
-	{Expresion}
+Definicion:
+	{Definicion}
 	//(define (head args) body ...+)
 	//value = (STRING | 'TRUE' | 'FALSE')
 	'(''define''('name/*head*/=ID args=Argumento')'
@@ -41,12 +43,8 @@ Argumento:
 	name=ID
 ;
 
-Funcion:
-	'(''define''('name=ID variable=[Variable]')'acciones+=Accion')'
-;
-
-Accion:
-	'('operador=Operador objeto1=[Variable] objeto2=[Variable]')'
+Ejecucion:
+	name=ID
 ;
 
 Operador:
