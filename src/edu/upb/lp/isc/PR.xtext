@@ -3,9 +3,11 @@ grammar edu.upb.lp.isc.PR with org.eclipse.xtext.common.Terminals
 generate pR "http://www.upb.edu/lp/isc/PR"
 
 Programa:
+	';''Author'':' STRING
+	';'name=ID
 	(variables+=Variable)*	
 	(definiciones+=Definicion)*
-	'?'(ejecuciones+=Ejecucion)*
+	(ejecuciones+=Ejecucion)*
 	
 ;
 
@@ -13,7 +15,7 @@ Programa:
 Variable:
 	{Variable}
 	//(define id expr)
-	'(''define' name =ID value=INT/* | STRING | 'TRUE' | 'FALSE'*/')'
+	'(''define' name =ID value=Value/* | STRING | 'TRUE' | 'FALSE'*/')'
 ;
 
 Definicion:
@@ -44,7 +46,7 @@ Argumento:
 ;
 
 Ejecucion:
-	name=ID
+	'?''('definiciones+=[Definicion] parametros+=Value*')'
 ;
 
 Operador:
