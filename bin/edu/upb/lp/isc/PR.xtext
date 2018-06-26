@@ -1,0 +1,55 @@
+grammar edu.upb.lp.isc.PR with org.eclipse.xtext.common.Terminals
+
+generate pR "http://www.upb.edu/lp/isc/PR"
+
+Programa:
+	(variables+=Variable)*	
+	(expresiones+=Expresion)*
+;
+
+
+Variable:
+	{Variable}
+	//(define id expr)
+	'(''define' name =ID value=INT/* | STRING | 'TRUE' | 'FALSE'*/')'
+;
+
+Expresion:
+	{Expresion}
+	//(define (head args) body ...+)
+	//value = (STRING | 'TRUE' | 'FALSE')
+	'(''define''('name/*head*/=ID args=Argumento')'
+		/*body*/'('operador=Operador value1=Value value2=Value')'
+	')'
+;
+
+Value: RefValue | StringValue | IntValue;
+
+RefValue:
+	ref = [Argumento]
+;
+
+StringValue:
+	str = STRING
+;
+
+IntValue:
+	val = INT
+;
+
+Argumento:
+	name=ID
+;
+
+Funcion:
+	'(''define''('name=ID variable=[Variable]')'acciones+=Accion')'
+;
+
+Accion:
+	'('operador=Operador objeto1=[Variable] objeto2=[Variable]')'
+;
+
+Operador:
+	'+'|'-'|'*'|'/'
+;
+
