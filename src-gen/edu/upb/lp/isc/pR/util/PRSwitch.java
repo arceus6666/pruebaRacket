@@ -94,18 +94,10 @@ public class PRSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PRPackage.VALUE:
+      case PRPackage.EXPRESION:
       {
-        Value value = (Value)theEObject;
-        T result = caseValue(value);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PRPackage.REF_VALUE:
-      {
-        RefValue refValue = (RefValue)theEObject;
-        T result = caseRefValue(refValue);
-        if (result == null) result = caseValue(refValue);
+        Expresion expresion = (Expresion)theEObject;
+        T result = caseExpresion(expresion);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -113,7 +105,6 @@ public class PRSwitch<T> extends Switch<T>
       {
         StringValue stringValue = (StringValue)theEObject;
         T result = caseStringValue(stringValue);
-        if (result == null) result = caseValue(stringValue);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -121,21 +112,153 @@ public class PRSwitch<T> extends Switch<T>
       {
         IntValue intValue = (IntValue)theEObject;
         T result = caseIntValue(intValue);
-        if (result == null) result = caseValue(intValue);
+        if (result == null) result = caseIntExpr(intValue);
+        if (result == null) result = caseExpresion(intValue);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PRPackage.ARGUMENTO:
+      case PRPackage.INT_EXPR:
       {
-        Argumento argumento = (Argumento)theEObject;
-        T result = caseArgumento(argumento);
+        IntExpr intExpr = (IntExpr)theEObject;
+        T result = caseIntExpr(intExpr);
+        if (result == null) result = caseExpresion(intExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PRPackage.EXPRESION:
+      case PRPackage.SUM:
       {
-        Expresion expresion = (Expresion)theEObject;
-        T result = caseExpresion(expresion);
+        Sum sum = (Sum)theEObject;
+        T result = caseSum(sum);
+        if (result == null) result = caseIntExpr(sum);
+        if (result == null) result = caseExpresion(sum);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.MULT:
+      {
+        Mult mult = (Mult)theEObject;
+        T result = caseMult(mult);
+        if (result == null) result = caseIntExpr(mult);
+        if (result == null) result = caseExpresion(mult);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.RES:
+      {
+        Res res = (Res)theEObject;
+        T result = caseRes(res);
+        if (result == null) result = caseIntExpr(res);
+        if (result == null) result = caseExpresion(res);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.DIV:
+      {
+        Div div = (Div)theEObject;
+        T result = caseDiv(div);
+        if (result == null) result = caseIntExpr(div);
+        if (result == null) result = caseExpresion(div);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.STRING_EXPR:
+      {
+        StringExpr stringExpr = (StringExpr)theEObject;
+        T result = caseStringExpr(stringExpr);
+        if (result == null) result = caseExpresion(stringExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.BOOLEAN_EXPR:
+      {
+        BooleanExpr booleanExpr = (BooleanExpr)theEObject;
+        T result = caseBooleanExpr(booleanExpr);
+        if (result == null) result = caseExpresion(booleanExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.EXPR_VALUE:
+      {
+        ExprValue exprValue = (ExprValue)theEObject;
+        T result = caseExprValue(exprValue);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.CALL_EXPR:
+      {
+        CallExpr callExpr = (CallExpr)theEObject;
+        T result = caseCallExpr(callExpr);
+        if (result == null) result = caseExpresion(callExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.REF_VARIABLE:
+      {
+        RefVariable refVariable = (RefVariable)theEObject;
+        T result = caseRefVariable(refVariable);
+        if (result == null) result = caseExpresion(refVariable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.IF_EXPR:
+      {
+        IfExpr ifExpr = (IfExpr)theEObject;
+        T result = caseIfExpr(ifExpr);
+        if (result == null) result = caseExpresion(ifExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.LIST_EXPR:
+      {
+        ListExpr listExpr = (ListExpr)theEObject;
+        T result = caseListExpr(listExpr);
+        if (result == null) result = caseExpresion(listExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.LIST_VALUE:
+      {
+        ListValue listValue = (ListValue)theEObject;
+        T result = caseListValue(listValue);
+        if (result == null) result = caseListExpr(listValue);
+        if (result == null) result = caseExpresion(listValue);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.COMPLEX_LIST_EXPR:
+      {
+        ComplexListExpr complexListExpr = (ComplexListExpr)theEObject;
+        T result = caseComplexListExpr(complexListExpr);
+        if (result == null) result = caseListExpr(complexListExpr);
+        if (result == null) result = caseExpresion(complexListExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.LIST_OP:
+      {
+        ListOp listOp = (ListOp)theEObject;
+        T result = caseListOp(listOp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.CAR:
+      {
+        Car car = (Car)theEObject;
+        T result = caseCar(car);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.CDR:
+      {
+        Cdr cdr = (Cdr)theEObject;
+        T result = caseCdr(cdr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PRPackage.WHILE_EXPR:
+      {
+        WhileExpr whileExpr = (WhileExpr)theEObject;
+        T result = caseWhileExpr(whileExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -192,33 +315,17 @@ public class PRSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Expresion</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Value</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Expresion</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseValue(Value object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Ref Value</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Ref Value</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRefValue(RefValue object)
+  public T caseExpresion(Expresion object)
   {
     return null;
   }
@@ -256,33 +363,289 @@ public class PRSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Argumento</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Int Expr</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Argumento</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Int Expr</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseArgumento(Argumento object)
+  public T caseIntExpr(IntExpr object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Expresion</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Sum</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expresion</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Sum</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExpresion(Expresion object)
+  public T caseSum(Sum object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mult</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mult</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMult(Mult object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Res</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Res</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRes(Res object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Div</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Div</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDiv(Div object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>String Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>String Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStringExpr(StringExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Boolean Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Boolean Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBooleanExpr(BooleanExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expr Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expr Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExprValue(ExprValue object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Call Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Call Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCallExpr(CallExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ref Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ref Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRefVariable(RefVariable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>If Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>If Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIfExpr(IfExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>List Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>List Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseListExpr(ListExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>List Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>List Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseListValue(ListValue object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Complex List Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Complex List Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseComplexListExpr(ComplexListExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>List Op</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>List Op</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseListOp(ListOp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Car</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Car</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCar(Car object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Cdr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Cdr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCdr(Cdr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>While Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>While Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWhileExpr(WhileExpr object)
   {
     return null;
   }

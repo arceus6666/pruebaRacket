@@ -68,12 +68,27 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
       case PRPackage.PROGRAMA: return createPrograma();
       case PRPackage.VARIABLE: return createVariable();
       case PRPackage.DEFINICION: return createDefinicion();
-      case PRPackage.VALUE: return createValue();
-      case PRPackage.REF_VALUE: return createRefValue();
+      case PRPackage.EXPRESION: return createExpresion();
       case PRPackage.STRING_VALUE: return createStringValue();
       case PRPackage.INT_VALUE: return createIntValue();
-      case PRPackage.ARGUMENTO: return createArgumento();
-      case PRPackage.EXPRESION: return createExpresion();
+      case PRPackage.INT_EXPR: return createIntExpr();
+      case PRPackage.SUM: return createSum();
+      case PRPackage.MULT: return createMult();
+      case PRPackage.RES: return createRes();
+      case PRPackage.DIV: return createDiv();
+      case PRPackage.STRING_EXPR: return createStringExpr();
+      case PRPackage.BOOLEAN_EXPR: return createBooleanExpr();
+      case PRPackage.EXPR_VALUE: return createExprValue();
+      case PRPackage.CALL_EXPR: return createCallExpr();
+      case PRPackage.REF_VARIABLE: return createRefVariable();
+      case PRPackage.IF_EXPR: return createIfExpr();
+      case PRPackage.LIST_EXPR: return createListExpr();
+      case PRPackage.LIST_VALUE: return createListValue();
+      case PRPackage.COMPLEX_LIST_EXPR: return createComplexListExpr();
+      case PRPackage.LIST_OP: return createListOp();
+      case PRPackage.CAR: return createCar();
+      case PRPackage.CDR: return createCdr();
+      case PRPackage.WHILE_EXPR: return createWhileExpr();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -117,21 +132,10 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Value createValue()
+  public Expresion createExpresion()
   {
-    ValueImpl value = new ValueImpl();
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RefValue createRefValue()
-  {
-    RefValueImpl refValue = new RefValueImpl();
-    return refValue;
+    ExpresionImpl expresion = new ExpresionImpl();
+    return expresion;
   }
 
   /**
@@ -161,10 +165,10 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Argumento createArgumento()
+  public IntExpr createIntExpr()
   {
-    ArgumentoImpl argumento = new ArgumentoImpl();
-    return argumento;
+    IntExprImpl intExpr = new IntExprImpl();
+    return intExpr;
   }
 
   /**
@@ -172,10 +176,186 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expresion createExpresion()
+  public Sum createSum()
   {
-    ExpresionImpl expresion = new ExpresionImpl();
-    return expresion;
+    SumImpl sum = new SumImpl();
+    return sum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Mult createMult()
+  {
+    MultImpl mult = new MultImpl();
+    return mult;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Res createRes()
+  {
+    ResImpl res = new ResImpl();
+    return res;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Div createDiv()
+  {
+    DivImpl div = new DivImpl();
+    return div;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringExpr createStringExpr()
+  {
+    StringExprImpl stringExpr = new StringExprImpl();
+    return stringExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BooleanExpr createBooleanExpr()
+  {
+    BooleanExprImpl booleanExpr = new BooleanExprImpl();
+    return booleanExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExprValue createExprValue()
+  {
+    ExprValueImpl exprValue = new ExprValueImpl();
+    return exprValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CallExpr createCallExpr()
+  {
+    CallExprImpl callExpr = new CallExprImpl();
+    return callExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RefVariable createRefVariable()
+  {
+    RefVariableImpl refVariable = new RefVariableImpl();
+    return refVariable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfExpr createIfExpr()
+  {
+    IfExprImpl ifExpr = new IfExprImpl();
+    return ifExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ListExpr createListExpr()
+  {
+    ListExprImpl listExpr = new ListExprImpl();
+    return listExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ListValue createListValue()
+  {
+    ListValueImpl listValue = new ListValueImpl();
+    return listValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ComplexListExpr createComplexListExpr()
+  {
+    ComplexListExprImpl complexListExpr = new ComplexListExprImpl();
+    return complexListExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ListOp createListOp()
+  {
+    ListOpImpl listOp = new ListOpImpl();
+    return listOp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Car createCar()
+  {
+    CarImpl car = new CarImpl();
+    return car;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Cdr createCdr()
+  {
+    CdrImpl cdr = new CdrImpl();
+    return cdr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WhileExpr createWhileExpr()
+  {
+    WhileExprImpl whileExpr = new WhileExprImpl();
+    return whileExpr;
   }
 
   /**

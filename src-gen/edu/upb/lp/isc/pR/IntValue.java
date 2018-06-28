@@ -20,7 +20,7 @@ package edu.upb.lp.isc.pR;
  * @model
  * @generated
  */
-public interface IntValue extends Value
+public interface IntValue extends IntExpr
 {
   /**
    * Returns the value of the '<em><b>Val</b></em>' attribute.

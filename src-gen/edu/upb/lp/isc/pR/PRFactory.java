@@ -51,22 +51,13 @@ public interface PRFactory extends EFactory
   Definicion createDefinicion();
 
   /**
-   * Returns a new object of class '<em>Value</em>'.
+   * Returns a new object of class '<em>Expresion</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Value</em>'.
+   * @return a new object of class '<em>Expresion</em>'.
    * @generated
    */
-  Value createValue();
-
-  /**
-   * Returns a new object of class '<em>Ref Value</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ref Value</em>'.
-   * @generated
-   */
-  RefValue createRefValue();
+  Expresion createExpresion();
 
   /**
    * Returns a new object of class '<em>String Value</em>'.
@@ -87,22 +78,166 @@ public interface PRFactory extends EFactory
   IntValue createIntValue();
 
   /**
-   * Returns a new object of class '<em>Argumento</em>'.
+   * Returns a new object of class '<em>Int Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Argumento</em>'.
+   * @return a new object of class '<em>Int Expr</em>'.
    * @generated
    */
-  Argumento createArgumento();
+  IntExpr createIntExpr();
 
   /**
-   * Returns a new object of class '<em>Expresion</em>'.
+   * Returns a new object of class '<em>Sum</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expresion</em>'.
+   * @return a new object of class '<em>Sum</em>'.
    * @generated
    */
-  Expresion createExpresion();
+  Sum createSum();
+
+  /**
+   * Returns a new object of class '<em>Mult</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mult</em>'.
+   * @generated
+   */
+  Mult createMult();
+
+  /**
+   * Returns a new object of class '<em>Res</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Res</em>'.
+   * @generated
+   */
+  Res createRes();
+
+  /**
+   * Returns a new object of class '<em>Div</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Div</em>'.
+   * @generated
+   */
+  Div createDiv();
+
+  /**
+   * Returns a new object of class '<em>String Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Expr</em>'.
+   * @generated
+   */
+  StringExpr createStringExpr();
+
+  /**
+   * Returns a new object of class '<em>Boolean Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean Expr</em>'.
+   * @generated
+   */
+  BooleanExpr createBooleanExpr();
+
+  /**
+   * Returns a new object of class '<em>Expr Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr Value</em>'.
+   * @generated
+   */
+  ExprValue createExprValue();
+
+  /**
+   * Returns a new object of class '<em>Call Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Call Expr</em>'.
+   * @generated
+   */
+  CallExpr createCallExpr();
+
+  /**
+   * Returns a new object of class '<em>Ref Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Variable</em>'.
+   * @generated
+   */
+  RefVariable createRefVariable();
+
+  /**
+   * Returns a new object of class '<em>If Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Expr</em>'.
+   * @generated
+   */
+  IfExpr createIfExpr();
+
+  /**
+   * Returns a new object of class '<em>List Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>List Expr</em>'.
+   * @generated
+   */
+  ListExpr createListExpr();
+
+  /**
+   * Returns a new object of class '<em>List Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>List Value</em>'.
+   * @generated
+   */
+  ListValue createListValue();
+
+  /**
+   * Returns a new object of class '<em>Complex List Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Complex List Expr</em>'.
+   * @generated
+   */
+  ComplexListExpr createComplexListExpr();
+
+  /**
+   * Returns a new object of class '<em>List Op</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>List Op</em>'.
+   * @generated
+   */
+  ListOp createListOp();
+
+  /**
+   * Returns a new object of class '<em>Car</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Car</em>'.
+   * @generated
+   */
+  Car createCar();
+
+  /**
+   * Returns a new object of class '<em>Cdr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Cdr</em>'.
+   * @generated
+   */
+  Cdr createCdr();
+
+  /**
+   * Returns a new object of class '<em>While Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>While Expr</em>'.
+   * @generated
+   */
+  WhileExpr createWhileExpr();
 
   /**
    * Returns the package supported by this factory.

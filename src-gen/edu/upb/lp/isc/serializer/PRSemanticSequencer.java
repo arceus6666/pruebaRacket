@@ -4,15 +4,28 @@
 package edu.upb.lp.isc.serializer;
 
 import com.google.inject.Inject;
-import edu.upb.lp.isc.pR.Argumento;
+import edu.upb.lp.isc.pR.BooleanExpr;
+import edu.upb.lp.isc.pR.CallExpr;
+import edu.upb.lp.isc.pR.Car;
+import edu.upb.lp.isc.pR.Cdr;
+import edu.upb.lp.isc.pR.ComplexListExpr;
 import edu.upb.lp.isc.pR.Definicion;
-import edu.upb.lp.isc.pR.Expresion;
+import edu.upb.lp.isc.pR.Div;
+import edu.upb.lp.isc.pR.ExprValue;
+import edu.upb.lp.isc.pR.IfExpr;
 import edu.upb.lp.isc.pR.IntValue;
+import edu.upb.lp.isc.pR.ListOp;
+import edu.upb.lp.isc.pR.ListValue;
+import edu.upb.lp.isc.pR.Mult;
 import edu.upb.lp.isc.pR.PRPackage;
 import edu.upb.lp.isc.pR.Programa;
-import edu.upb.lp.isc.pR.RefValue;
+import edu.upb.lp.isc.pR.RefVariable;
+import edu.upb.lp.isc.pR.Res;
+import edu.upb.lp.isc.pR.StringExpr;
 import edu.upb.lp.isc.pR.StringValue;
+import edu.upb.lp.isc.pR.Sum;
 import edu.upb.lp.isc.pR.Variable;
+import edu.upb.lp.isc.pR.WhileExpr;
 import edu.upb.lp.isc.services.PRGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -39,29 +52,68 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == PRPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case PRPackage.ARGUMENTO:
-				sequence_Argumento(context, (Argumento) semanticObject); 
+			case PRPackage.BOOLEAN_EXPR:
+				sequence_BooleanExpr(context, (BooleanExpr) semanticObject); 
+				return; 
+			case PRPackage.CALL_EXPR:
+				sequence_CallExpr(context, (CallExpr) semanticObject); 
+				return; 
+			case PRPackage.CAR:
+				sequence_Car(context, (Car) semanticObject); 
+				return; 
+			case PRPackage.CDR:
+				sequence_Cdr(context, (Cdr) semanticObject); 
+				return; 
+			case PRPackage.COMPLEX_LIST_EXPR:
+				sequence_ComplexListExpr(context, (ComplexListExpr) semanticObject); 
 				return; 
 			case PRPackage.DEFINICION:
 				sequence_Definicion(context, (Definicion) semanticObject); 
 				return; 
-			case PRPackage.EXPRESION:
-				sequence_Expresion(context, (Expresion) semanticObject); 
+			case PRPackage.DIV:
+				sequence_Div(context, (Div) semanticObject); 
+				return; 
+			case PRPackage.EXPR_VALUE:
+				sequence_ExprValue(context, (ExprValue) semanticObject); 
+				return; 
+			case PRPackage.IF_EXPR:
+				sequence_IfExpr(context, (IfExpr) semanticObject); 
 				return; 
 			case PRPackage.INT_VALUE:
 				sequence_IntValue(context, (IntValue) semanticObject); 
 				return; 
+			case PRPackage.LIST_OP:
+				sequence_ListOp(context, (ListOp) semanticObject); 
+				return; 
+			case PRPackage.LIST_VALUE:
+				sequence_ListValue(context, (ListValue) semanticObject); 
+				return; 
+			case PRPackage.MULT:
+				sequence_Mult(context, (Mult) semanticObject); 
+				return; 
 			case PRPackage.PROGRAMA:
 				sequence_Programa(context, (Programa) semanticObject); 
 				return; 
-			case PRPackage.REF_VALUE:
-				sequence_RefValue(context, (RefValue) semanticObject); 
+			case PRPackage.REF_VARIABLE:
+				sequence_RefVariable(context, (RefVariable) semanticObject); 
+				return; 
+			case PRPackage.RES:
+				sequence_Res(context, (Res) semanticObject); 
+				return; 
+			case PRPackage.STRING_EXPR:
+				sequence_StringExpr(context, (StringExpr) semanticObject); 
 				return; 
 			case PRPackage.STRING_VALUE:
 				sequence_StringValue(context, (StringValue) semanticObject); 
 				return; 
+			case PRPackage.SUM:
+				sequence_Sum(context, (Sum) semanticObject); 
+				return; 
 			case PRPackage.VARIABLE:
 				sequence_Variable(context, (Variable) semanticObject); 
+				return; 
+			case PRPackage.WHILE_EXPR:
+				sequence_WhileExpr(context, (WhileExpr) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -70,19 +122,77 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Argumento returns Argumento
+	 *     Expresion returns BooleanExpr
+	 *     BooleanExpr returns BooleanExpr
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     {BooleanExpr}
 	 */
-	protected void sequence_Argumento(ISerializationContext context, Argumento semanticObject) {
+	protected void sequence_BooleanExpr(ISerializationContext context, BooleanExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expresion returns CallExpr
+	 *     CallExpr returns CallExpr
+	 *
+	 * Constraint:
+	 *     (definicion=[Definicion|ID] parametros+=Expresion*)
+	 */
+	protected void sequence_CallExpr(ISerializationContext context, CallExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Car returns Car
+	 *
+	 * Constraint:
+	 *     car='car'
+	 */
+	protected void sequence_Car(ISerializationContext context, Car semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.ARGUMENTO__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.ARGUMENTO__NAME));
+			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.CAR__CAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.CAR__CAR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getArgumentoAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCarAccess().getCarCarKeyword_0(), semanticObject.getCar());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Cdr returns Cdr
+	 *
+	 * Constraint:
+	 *     cdr='cdr'
+	 */
+	protected void sequence_Cdr(ISerializationContext context, Cdr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.CDR__CDR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.CDR__CDR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCdrAccess().getCdrCdrKeyword_0(), semanticObject.getCdr());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expresion returns ComplexListExpr
+	 *     ListExpr returns ComplexListExpr
+	 *     ComplexListExpr returns ComplexListExpr
+	 *
+	 * Constraint:
+	 *     (op=ListOp expr+=ListExpr+)
+	 */
+	protected void sequence_ComplexListExpr(ISerializationContext context, ComplexListExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -91,7 +201,7 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Definicion returns Definicion
 	 *
 	 * Constraint:
-	 *     (name=ID args+=Argumento* operador=Operador valores+=Expresion+)
+	 *     (name=ID args+=Variable* e=Expresion)
 	 */
 	protected void sequence_Definicion(ISerializationContext context, Definicion semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -100,20 +210,66 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Expresion returns Expresion
+	 *     Expresion returns Div
+	 *     IntExpr returns Div
+	 *     Div returns Div
 	 *
 	 * Constraint:
-	 *     (definiciones+=[Definicion|ID] (parametros+=Value | parametros+=Expresion)*)
+	 *     value1+=IntExpr
 	 */
-	protected void sequence_Expresion(ISerializationContext context, Expresion semanticObject) {
+	protected void sequence_Div(ISerializationContext context, Div semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Value returns IntValue
+	 *     ExprValue returns ExprValue
+	 *
+	 * Constraint:
+	 *     exp=Expresion
+	 */
+	protected void sequence_ExprValue(ISerializationContext context, ExprValue semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.EXPR_VALUE__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.EXPR_VALUE__EXP));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExprValueAccess().getExpExpresionParserRuleCall_0(), semanticObject.getExp());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expresion returns IfExpr
+	 *     IfExpr returns IfExpr
+	 *
+	 * Constraint:
+	 *     (IfExpr=BooleanExpr IfTrue=BooleanExpr IfFalse=BooleanExpr)
+	 */
+	protected void sequence_IfExpr(ISerializationContext context, IfExpr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.IF_EXPR__IF_EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.IF_EXPR__IF_EXPR));
+			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.IF_EXPR__IF_TRUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.IF_EXPR__IF_TRUE));
+			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.IF_EXPR__IF_FALSE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.IF_EXPR__IF_FALSE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIfExprAccess().getIfExprBooleanExprParserRuleCall_2_0(), semanticObject.getIfExpr());
+		feeder.accept(grammarAccess.getIfExprAccess().getIfTrueBooleanExprParserRuleCall_3_0(), semanticObject.getIfTrue());
+		feeder.accept(grammarAccess.getIfExprAccess().getIfFalseBooleanExprParserRuleCall_4_0(), semanticObject.getIfFalse());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expresion returns IntValue
 	 *     IntValue returns IntValue
+	 *     IntExpr returns IntValue
 	 *
 	 * Constraint:
 	 *     val=INT
@@ -131,6 +287,46 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     ListOp returns ListOp
+	 *
+	 * Constraint:
+	 *     (op=Car | op=Cdr)
+	 */
+	protected void sequence_ListOp(ISerializationContext context, ListOp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expresion returns ListValue
+	 *     ListExpr returns ListValue
+	 *     ListValue returns ListValue
+	 *
+	 * Constraint:
+	 *     (Expr+=Expresion Expr+=Expresion*)?
+	 */
+	protected void sequence_ListValue(ISerializationContext context, ListValue semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expresion returns Mult
+	 *     IntExpr returns Mult
+	 *     Mult returns Mult
+	 *
+	 * Constraint:
+	 *     value+=IntExpr*
+	 */
+	protected void sequence_Mult(ISerializationContext context, Mult semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Programa returns Programa
 	 *
 	 * Constraint:
@@ -143,26 +339,58 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Value returns RefValue
-	 *     RefValue returns RefValue
+	 *     Expresion returns RefVariable
+	 *     RefVariable returns RefVariable
 	 *
 	 * Constraint:
-	 *     ref=[Argumento|ID]
+	 *     ref=[Variable|ID]
 	 */
-	protected void sequence_RefValue(ISerializationContext context, RefValue semanticObject) {
+	protected void sequence_RefVariable(ISerializationContext context, RefVariable semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.REF_VALUE__REF) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.REF_VALUE__REF));
+			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.REF_VARIABLE__REF) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.REF_VARIABLE__REF));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRefValueAccess().getRefArgumentoIDTerminalRuleCall_0_1(), semanticObject.eGet(PRPackage.Literals.REF_VALUE__REF, false));
+		feeder.accept(grammarAccess.getRefVariableAccess().getRefVariableIDTerminalRuleCall_0_1(), semanticObject.eGet(PRPackage.Literals.REF_VARIABLE__REF, false));
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Value returns StringValue
+	 *     Expresion returns Res
+	 *     IntExpr returns Res
+	 *     Res returns Res
+	 *
+	 * Constraint:
+	 *     value+=IntExpr*
+	 */
+	protected void sequence_Res(ISerializationContext context, Res semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expresion returns StringExpr
+	 *     StringExpr returns StringExpr
+	 *
+	 * Constraint:
+	 *     str=StringValue
+	 */
+	protected void sequence_StringExpr(ISerializationContext context, StringExpr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.STRING_EXPR__STR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.STRING_EXPR__STR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getStringExprAccess().getStrStringValueParserRuleCall_0(), semanticObject.getStr());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     StringValue returns StringValue
 	 *
 	 * Constraint:
@@ -181,22 +409,48 @@ public class PRSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Expresion returns Sum
+	 *     IntExpr returns Sum
+	 *     Sum returns Sum
+	 *
+	 * Constraint:
+	 *     value+=IntExpr*
+	 */
+	protected void sequence_Sum(ISerializationContext context, Sum semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Variable returns Variable
 	 *
 	 * Constraint:
-	 *     (name=ID value=Value)
+	 *     (name=ID expr=Expresion)
 	 */
 	protected void sequence_Variable(ISerializationContext context, Variable semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.VARIABLE__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.VARIABLE__NAME));
-			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.VARIABLE__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.VARIABLE__VALUE));
+			if (transientValues.isValueTransient(semanticObject, PRPackage.Literals.VARIABLE__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PRPackage.Literals.VARIABLE__EXPR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getVariableAccess().getNameIDTerminalRuleCall_3_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getVariableAccess().getValueValueParserRuleCall_4_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getVariableAccess().getExprExpresionParserRuleCall_4_0(), semanticObject.getExpr());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     WhileExpr returns WhileExpr
+	 *
+	 * Constraint:
+	 *     expresiones+=[Expresion|ID]
+	 */
+	protected void sequence_WhileExpr(ISerializationContext context, WhileExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

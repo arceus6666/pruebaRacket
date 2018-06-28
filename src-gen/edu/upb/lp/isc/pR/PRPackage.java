@@ -132,13 +132,13 @@ public interface PRPackage extends EPackage
   int VARIABLE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE__VALUE = 1;
+  int VARIABLE__EXPR = 1;
 
   /**
    * The number of structural features of the '<em>Variable</em>' class.
@@ -178,22 +178,13 @@ public interface PRPackage extends EPackage
   int DEFINICION__ARGS = 1;
 
   /**
-   * The feature id for the '<em><b>Operador</b></em>' attribute.
+   * The feature id for the '<em><b>E</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEFINICION__OPERADOR = 2;
-
-  /**
-   * The feature id for the '<em><b>Valores</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEFINICION__VALORES = 3;
+  int DEFINICION__E = 2;
 
   /**
    * The number of structural features of the '<em>Definicion</em>' class.
@@ -202,138 +193,7 @@ public interface PRPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEFINICION_FEATURE_COUNT = 4;
-
-  /**
-   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.ValueImpl <em>Value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see edu.upb.lp.isc.pR.impl.ValueImpl
-   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getValue()
-   * @generated
-   */
-  int VALUE = 3;
-
-  /**
-   * The number of structural features of the '<em>Value</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VALUE_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.RefValueImpl <em>Ref Value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see edu.upb.lp.isc.pR.impl.RefValueImpl
-   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getRefValue()
-   * @generated
-   */
-  int REF_VALUE = 4;
-
-  /**
-   * The feature id for the '<em><b>Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_VALUE__REF = VALUE_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Ref Value</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.StringValueImpl <em>String Value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see edu.upb.lp.isc.pR.impl.StringValueImpl
-   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getStringValue()
-   * @generated
-   */
-  int STRING_VALUE = 5;
-
-  /**
-   * The feature id for the '<em><b>Str</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRING_VALUE__STR = VALUE_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>String Value</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRING_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.IntValueImpl <em>Int Value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see edu.upb.lp.isc.pR.impl.IntValueImpl
-   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getIntValue()
-   * @generated
-   */
-  int INT_VALUE = 6;
-
-  /**
-   * The feature id for the '<em><b>Val</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_VALUE__VAL = VALUE_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Int Value</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.ArgumentoImpl <em>Argumento</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see edu.upb.lp.isc.pR.impl.ArgumentoImpl
-   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getArgumento()
-   * @generated
-   */
-  int ARGUMENTO = 7;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTO__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Argumento</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTO_FEATURE_COUNT = 1;
+  int DEFINICION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.ExpresionImpl <em>Expresion</em>}' class.
@@ -343,25 +203,7 @@ public interface PRPackage extends EPackage
    * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getExpresion()
    * @generated
    */
-  int EXPRESION = 8;
-
-  /**
-   * The feature id for the '<em><b>Definiciones</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESION__DEFINICIONES = 0;
-
-  /**
-   * The feature id for the '<em><b>Parametros</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESION__PARAMETROS = 1;
+  int EXPRESION = 3;
 
   /**
    * The number of structural features of the '<em>Expresion</em>' class.
@@ -370,7 +212,576 @@ public interface PRPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESION_FEATURE_COUNT = 2;
+  int EXPRESION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.StringValueImpl <em>String Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.StringValueImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getStringValue()
+   * @generated
+   */
+  int STRING_VALUE = 4;
+
+  /**
+   * The feature id for the '<em><b>Str</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_VALUE__STR = 0;
+
+  /**
+   * The number of structural features of the '<em>String Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_VALUE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.IntExprImpl <em>Int Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.IntExprImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getIntExpr()
+   * @generated
+   */
+  int INT_EXPR = 6;
+
+  /**
+   * The number of structural features of the '<em>Int Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INT_EXPR_FEATURE_COUNT = EXPRESION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.IntValueImpl <em>Int Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.IntValueImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getIntValue()
+   * @generated
+   */
+  int INT_VALUE = 5;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INT_VALUE__VAL = INT_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Int Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INT_VALUE_FEATURE_COUNT = INT_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.SumImpl <em>Sum</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.SumImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getSum()
+   * @generated
+   */
+  int SUM = 7;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUM__VALUE = INT_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Sum</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUM_FEATURE_COUNT = INT_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.MultImpl <em>Mult</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.MultImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getMult()
+   * @generated
+   */
+  int MULT = 8;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULT__VALUE = INT_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Mult</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULT_FEATURE_COUNT = INT_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.ResImpl <em>Res</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.ResImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getRes()
+   * @generated
+   */
+  int RES = 9;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RES__VALUE = INT_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Res</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RES_FEATURE_COUNT = INT_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.DivImpl <em>Div</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.DivImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getDiv()
+   * @generated
+   */
+  int DIV = 10;
+
+  /**
+   * The feature id for the '<em><b>Value1</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIV__VALUE1 = INT_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Div</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIV_FEATURE_COUNT = INT_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.StringExprImpl <em>String Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.StringExprImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getStringExpr()
+   * @generated
+   */
+  int STRING_EXPR = 11;
+
+  /**
+   * The feature id for the '<em><b>Str</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_EXPR__STR = EXPRESION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>String Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_EXPR_FEATURE_COUNT = EXPRESION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.BooleanExprImpl <em>Boolean Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.BooleanExprImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getBooleanExpr()
+   * @generated
+   */
+  int BOOLEAN_EXPR = 12;
+
+  /**
+   * The number of structural features of the '<em>Boolean Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_EXPR_FEATURE_COUNT = EXPRESION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.ExprValueImpl <em>Expr Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.ExprValueImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getExprValue()
+   * @generated
+   */
+  int EXPR_VALUE = 13;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_VALUE__EXP = 0;
+
+  /**
+   * The number of structural features of the '<em>Expr Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_VALUE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.CallExprImpl <em>Call Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.CallExprImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getCallExpr()
+   * @generated
+   */
+  int CALL_EXPR = 14;
+
+  /**
+   * The feature id for the '<em><b>Definicion</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL_EXPR__DEFINICION = EXPRESION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Parametros</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL_EXPR__PARAMETROS = EXPRESION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Call Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL_EXPR_FEATURE_COUNT = EXPRESION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.RefVariableImpl <em>Ref Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.RefVariableImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getRefVariable()
+   * @generated
+   */
+  int REF_VARIABLE = 15;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_VARIABLE__REF = EXPRESION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Ref Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_VARIABLE_FEATURE_COUNT = EXPRESION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.IfExprImpl <em>If Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.IfExprImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getIfExpr()
+   * @generated
+   */
+  int IF_EXPR = 16;
+
+  /**
+   * The feature id for the '<em><b>If Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_EXPR__IF_EXPR = EXPRESION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>If True</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_EXPR__IF_TRUE = EXPRESION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>If False</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_EXPR__IF_FALSE = EXPRESION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>If Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_EXPR_FEATURE_COUNT = EXPRESION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.ListExprImpl <em>List Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.ListExprImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getListExpr()
+   * @generated
+   */
+  int LIST_EXPR = 17;
+
+  /**
+   * The number of structural features of the '<em>List Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_EXPR_FEATURE_COUNT = EXPRESION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.ListValueImpl <em>List Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.ListValueImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getListValue()
+   * @generated
+   */
+  int LIST_VALUE = 18;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_VALUE__EXPR = LIST_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>List Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_VALUE_FEATURE_COUNT = LIST_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.ComplexListExprImpl <em>Complex List Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.ComplexListExprImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getComplexListExpr()
+   * @generated
+   */
+  int COMPLEX_LIST_EXPR = 19;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEX_LIST_EXPR__OP = LIST_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEX_LIST_EXPR__EXPR = LIST_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Complex List Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEX_LIST_EXPR_FEATURE_COUNT = LIST_EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.ListOpImpl <em>List Op</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.ListOpImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getListOp()
+   * @generated
+   */
+  int LIST_OP = 20;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_OP__OP = 0;
+
+  /**
+   * The number of structural features of the '<em>List Op</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_OP_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.CarImpl <em>Car</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.CarImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getCar()
+   * @generated
+   */
+  int CAR = 21;
+
+  /**
+   * The feature id for the '<em><b>Car</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CAR__CAR = 0;
+
+  /**
+   * The number of structural features of the '<em>Car</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CAR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.CdrImpl <em>Cdr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.CdrImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getCdr()
+   * @generated
+   */
+  int CDR = 22;
+
+  /**
+   * The feature id for the '<em><b>Cdr</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CDR__CDR = 0;
+
+  /**
+   * The number of structural features of the '<em>Cdr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CDR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link edu.upb.lp.isc.pR.impl.WhileExprImpl <em>While Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.upb.lp.isc.pR.impl.WhileExprImpl
+   * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getWhileExpr()
+   * @generated
+   */
+  int WHILE_EXPR = 23;
+
+  /**
+   * The feature id for the '<em><b>Expresiones</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE_EXPR__EXPRESIONES = 0;
+
+  /**
+   * The number of structural features of the '<em>While Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE_EXPR_FEATURE_COUNT = 1;
 
 
   /**
@@ -449,15 +860,15 @@ public interface PRPackage extends EPackage
   EAttribute getVariable_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.Variable#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.Variable#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value</em>'.
-   * @see edu.upb.lp.isc.pR.Variable#getValue()
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see edu.upb.lp.isc.pR.Variable#getExpr()
    * @see #getVariable()
    * @generated
    */
-  EReference getVariable_Value();
+  EReference getVariable_Expr();
 
   /**
    * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Definicion <em>Definicion</em>}'.
@@ -492,57 +903,25 @@ public interface PRPackage extends EPackage
   EReference getDefinicion_Args();
 
   /**
-   * Returns the meta object for the attribute '{@link edu.upb.lp.isc.pR.Definicion#getOperador <em>Operador</em>}'.
+   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.Definicion#getE <em>E</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operador</em>'.
-   * @see edu.upb.lp.isc.pR.Definicion#getOperador()
+   * @return the meta object for the containment reference '<em>E</em>'.
+   * @see edu.upb.lp.isc.pR.Definicion#getE()
    * @see #getDefinicion()
    * @generated
    */
-  EAttribute getDefinicion_Operador();
+  EReference getDefinicion_E();
 
   /**
-   * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.Definicion#getValores <em>Valores</em>}'.
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Expresion <em>Expresion</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Valores</em>'.
-   * @see edu.upb.lp.isc.pR.Definicion#getValores()
-   * @see #getDefinicion()
+   * @return the meta object for class '<em>Expresion</em>'.
+   * @see edu.upb.lp.isc.pR.Expresion
    * @generated
    */
-  EReference getDefinicion_Valores();
-
-  /**
-   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Value <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Value</em>'.
-   * @see edu.upb.lp.isc.pR.Value
-   * @generated
-   */
-  EClass getValue();
-
-  /**
-   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.RefValue <em>Ref Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Ref Value</em>'.
-   * @see edu.upb.lp.isc.pR.RefValue
-   * @generated
-   */
-  EClass getRefValue();
-
-  /**
-   * Returns the meta object for the reference '{@link edu.upb.lp.isc.pR.RefValue#getRef <em>Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Ref</em>'.
-   * @see edu.upb.lp.isc.pR.RefValue#getRef()
-   * @see #getRefValue()
-   * @generated
-   */
-  EReference getRefValue_Ref();
+  EClass getExpresion();
 
   /**
    * Returns the meta object for class '{@link edu.upb.lp.isc.pR.StringValue <em>String Value</em>}'.
@@ -587,57 +966,393 @@ public interface PRPackage extends EPackage
   EAttribute getIntValue_Val();
 
   /**
-   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Argumento <em>Argumento</em>}'.
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.IntExpr <em>Int Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Argumento</em>'.
-   * @see edu.upb.lp.isc.pR.Argumento
+   * @return the meta object for class '<em>Int Expr</em>'.
+   * @see edu.upb.lp.isc.pR.IntExpr
    * @generated
    */
-  EClass getArgumento();
+  EClass getIntExpr();
 
   /**
-   * Returns the meta object for the attribute '{@link edu.upb.lp.isc.pR.Argumento#getName <em>Name</em>}'.
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Sum <em>Sum</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see edu.upb.lp.isc.pR.Argumento#getName()
-   * @see #getArgumento()
+   * @return the meta object for class '<em>Sum</em>'.
+   * @see edu.upb.lp.isc.pR.Sum
    * @generated
    */
-  EAttribute getArgumento_Name();
+  EClass getSum();
 
   /**
-   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Expresion <em>Expresion</em>}'.
+   * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.Sum#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Expresion</em>'.
-   * @see edu.upb.lp.isc.pR.Expresion
+   * @return the meta object for the containment reference list '<em>Value</em>'.
+   * @see edu.upb.lp.isc.pR.Sum#getValue()
+   * @see #getSum()
    * @generated
    */
-  EClass getExpresion();
+  EReference getSum_Value();
 
   /**
-   * Returns the meta object for the reference list '{@link edu.upb.lp.isc.pR.Expresion#getDefiniciones <em>Definiciones</em>}'.
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Mult <em>Mult</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Definiciones</em>'.
-   * @see edu.upb.lp.isc.pR.Expresion#getDefiniciones()
-   * @see #getExpresion()
+   * @return the meta object for class '<em>Mult</em>'.
+   * @see edu.upb.lp.isc.pR.Mult
    * @generated
    */
-  EReference getExpresion_Definiciones();
+  EClass getMult();
 
   /**
-   * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.Expresion#getParametros <em>Parametros</em>}'.
+   * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.Mult#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Value</em>'.
+   * @see edu.upb.lp.isc.pR.Mult#getValue()
+   * @see #getMult()
+   * @generated
+   */
+  EReference getMult_Value();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Res <em>Res</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Res</em>'.
+   * @see edu.upb.lp.isc.pR.Res
+   * @generated
+   */
+  EClass getRes();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.Res#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Value</em>'.
+   * @see edu.upb.lp.isc.pR.Res#getValue()
+   * @see #getRes()
+   * @generated
+   */
+  EReference getRes_Value();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Div <em>Div</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Div</em>'.
+   * @see edu.upb.lp.isc.pR.Div
+   * @generated
+   */
+  EClass getDiv();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.Div#getValue1 <em>Value1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Value1</em>'.
+   * @see edu.upb.lp.isc.pR.Div#getValue1()
+   * @see #getDiv()
+   * @generated
+   */
+  EReference getDiv_Value1();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.StringExpr <em>String Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Expr</em>'.
+   * @see edu.upb.lp.isc.pR.StringExpr
+   * @generated
+   */
+  EClass getStringExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.StringExpr#getStr <em>Str</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Str</em>'.
+   * @see edu.upb.lp.isc.pR.StringExpr#getStr()
+   * @see #getStringExpr()
+   * @generated
+   */
+  EReference getStringExpr_Str();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.BooleanExpr <em>Boolean Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Boolean Expr</em>'.
+   * @see edu.upb.lp.isc.pR.BooleanExpr
+   * @generated
+   */
+  EClass getBooleanExpr();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.ExprValue <em>Expr Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr Value</em>'.
+   * @see edu.upb.lp.isc.pR.ExprValue
+   * @generated
+   */
+  EClass getExprValue();
+
+  /**
+   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.ExprValue#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see edu.upb.lp.isc.pR.ExprValue#getExp()
+   * @see #getExprValue()
+   * @generated
+   */
+  EReference getExprValue_Exp();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.CallExpr <em>Call Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Call Expr</em>'.
+   * @see edu.upb.lp.isc.pR.CallExpr
+   * @generated
+   */
+  EClass getCallExpr();
+
+  /**
+   * Returns the meta object for the reference '{@link edu.upb.lp.isc.pR.CallExpr#getDefinicion <em>Definicion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Definicion</em>'.
+   * @see edu.upb.lp.isc.pR.CallExpr#getDefinicion()
+   * @see #getCallExpr()
+   * @generated
+   */
+  EReference getCallExpr_Definicion();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.CallExpr#getParametros <em>Parametros</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Parametros</em>'.
-   * @see edu.upb.lp.isc.pR.Expresion#getParametros()
-   * @see #getExpresion()
+   * @see edu.upb.lp.isc.pR.CallExpr#getParametros()
+   * @see #getCallExpr()
    * @generated
    */
-  EReference getExpresion_Parametros();
+  EReference getCallExpr_Parametros();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.RefVariable <em>Ref Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ref Variable</em>'.
+   * @see edu.upb.lp.isc.pR.RefVariable
+   * @generated
+   */
+  EClass getRefVariable();
+
+  /**
+   * Returns the meta object for the reference '{@link edu.upb.lp.isc.pR.RefVariable#getRef <em>Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref</em>'.
+   * @see edu.upb.lp.isc.pR.RefVariable#getRef()
+   * @see #getRefVariable()
+   * @generated
+   */
+  EReference getRefVariable_Ref();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.IfExpr <em>If Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>If Expr</em>'.
+   * @see edu.upb.lp.isc.pR.IfExpr
+   * @generated
+   */
+  EClass getIfExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.IfExpr#getIfExpr <em>If Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>If Expr</em>'.
+   * @see edu.upb.lp.isc.pR.IfExpr#getIfExpr()
+   * @see #getIfExpr()
+   * @generated
+   */
+  EReference getIfExpr_IfExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.IfExpr#getIfTrue <em>If True</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>If True</em>'.
+   * @see edu.upb.lp.isc.pR.IfExpr#getIfTrue()
+   * @see #getIfExpr()
+   * @generated
+   */
+  EReference getIfExpr_IfTrue();
+
+  /**
+   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.IfExpr#getIfFalse <em>If False</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>If False</em>'.
+   * @see edu.upb.lp.isc.pR.IfExpr#getIfFalse()
+   * @see #getIfExpr()
+   * @generated
+   */
+  EReference getIfExpr_IfFalse();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.ListExpr <em>List Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>List Expr</em>'.
+   * @see edu.upb.lp.isc.pR.ListExpr
+   * @generated
+   */
+  EClass getListExpr();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.ListValue <em>List Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>List Value</em>'.
+   * @see edu.upb.lp.isc.pR.ListValue
+   * @generated
+   */
+  EClass getListValue();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.ListValue#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expr</em>'.
+   * @see edu.upb.lp.isc.pR.ListValue#getExpr()
+   * @see #getListValue()
+   * @generated
+   */
+  EReference getListValue_Expr();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.ComplexListExpr <em>Complex List Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Complex List Expr</em>'.
+   * @see edu.upb.lp.isc.pR.ComplexListExpr
+   * @generated
+   */
+  EClass getComplexListExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.ComplexListExpr#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Op</em>'.
+   * @see edu.upb.lp.isc.pR.ComplexListExpr#getOp()
+   * @see #getComplexListExpr()
+   * @generated
+   */
+  EReference getComplexListExpr_Op();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link edu.upb.lp.isc.pR.ComplexListExpr#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expr</em>'.
+   * @see edu.upb.lp.isc.pR.ComplexListExpr#getExpr()
+   * @see #getComplexListExpr()
+   * @generated
+   */
+  EReference getComplexListExpr_Expr();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.ListOp <em>List Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>List Op</em>'.
+   * @see edu.upb.lp.isc.pR.ListOp
+   * @generated
+   */
+  EClass getListOp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link edu.upb.lp.isc.pR.ListOp#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Op</em>'.
+   * @see edu.upb.lp.isc.pR.ListOp#getOp()
+   * @see #getListOp()
+   * @generated
+   */
+  EReference getListOp_Op();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Car <em>Car</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Car</em>'.
+   * @see edu.upb.lp.isc.pR.Car
+   * @generated
+   */
+  EClass getCar();
+
+  /**
+   * Returns the meta object for the attribute '{@link edu.upb.lp.isc.pR.Car#getCar <em>Car</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Car</em>'.
+   * @see edu.upb.lp.isc.pR.Car#getCar()
+   * @see #getCar()
+   * @generated
+   */
+  EAttribute getCar_Car();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.Cdr <em>Cdr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Cdr</em>'.
+   * @see edu.upb.lp.isc.pR.Cdr
+   * @generated
+   */
+  EClass getCdr();
+
+  /**
+   * Returns the meta object for the attribute '{@link edu.upb.lp.isc.pR.Cdr#getCdr <em>Cdr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Cdr</em>'.
+   * @see edu.upb.lp.isc.pR.Cdr#getCdr()
+   * @see #getCdr()
+   * @generated
+   */
+  EAttribute getCdr_Cdr();
+
+  /**
+   * Returns the meta object for class '{@link edu.upb.lp.isc.pR.WhileExpr <em>While Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>While Expr</em>'.
+   * @see edu.upb.lp.isc.pR.WhileExpr
+   * @generated
+   */
+  EClass getWhileExpr();
+
+  /**
+   * Returns the meta object for the reference list '{@link edu.upb.lp.isc.pR.WhileExpr#getExpresiones <em>Expresiones</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Expresiones</em>'.
+   * @see edu.upb.lp.isc.pR.WhileExpr#getExpresiones()
+   * @see #getWhileExpr()
+   * @generated
+   */
+  EReference getWhileExpr_Expresiones();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -723,12 +1438,12 @@ public interface PRPackage extends EPackage
     EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VARIABLE__VALUE = eINSTANCE.getVariable_Value();
+    EReference VARIABLE__EXPR = eINSTANCE.getVariable_Expr();
 
     /**
      * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.DefinicionImpl <em>Definicion</em>}' class.
@@ -757,48 +1472,22 @@ public interface PRPackage extends EPackage
     EReference DEFINICION__ARGS = eINSTANCE.getDefinicion_Args();
 
     /**
-     * The meta object literal for the '<em><b>Operador</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>E</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DEFINICION__OPERADOR = eINSTANCE.getDefinicion_Operador();
+    EReference DEFINICION__E = eINSTANCE.getDefinicion_E();
 
     /**
-     * The meta object literal for the '<em><b>Valores</b></em>' containment reference list feature.
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.ExpresionImpl <em>Expresion</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.ExpresionImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getExpresion()
      * @generated
      */
-    EReference DEFINICION__VALORES = eINSTANCE.getDefinicion_Valores();
-
-    /**
-     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.ValueImpl <em>Value</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see edu.upb.lp.isc.pR.impl.ValueImpl
-     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getValue()
-     * @generated
-     */
-    EClass VALUE = eINSTANCE.getValue();
-
-    /**
-     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.RefValueImpl <em>Ref Value</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see edu.upb.lp.isc.pR.impl.RefValueImpl
-     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getRefValue()
-     * @generated
-     */
-    EClass REF_VALUE = eINSTANCE.getRefValue();
-
-    /**
-     * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REF_VALUE__REF = eINSTANCE.getRefValue_Ref();
+    EClass EXPRESION = eINSTANCE.getExpresion();
 
     /**
      * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.StringValueImpl <em>String Value</em>}' class.
@@ -837,40 +1526,150 @@ public interface PRPackage extends EPackage
     EAttribute INT_VALUE__VAL = eINSTANCE.getIntValue_Val();
 
     /**
-     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.ArgumentoImpl <em>Argumento</em>}' class.
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.IntExprImpl <em>Int Expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see edu.upb.lp.isc.pR.impl.ArgumentoImpl
-     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getArgumento()
+     * @see edu.upb.lp.isc.pR.impl.IntExprImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getIntExpr()
      * @generated
      */
-    EClass ARGUMENTO = eINSTANCE.getArgumento();
+    EClass INT_EXPR = eINSTANCE.getIntExpr();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.SumImpl <em>Sum</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.SumImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getSum()
      * @generated
      */
-    EAttribute ARGUMENTO__NAME = eINSTANCE.getArgumento_Name();
+    EClass SUM = eINSTANCE.getSum();
 
     /**
-     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.ExpresionImpl <em>Expresion</em>}' class.
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see edu.upb.lp.isc.pR.impl.ExpresionImpl
-     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getExpresion()
      * @generated
      */
-    EClass EXPRESION = eINSTANCE.getExpresion();
+    EReference SUM__VALUE = eINSTANCE.getSum_Value();
 
     /**
-     * The meta object literal for the '<em><b>Definiciones</b></em>' reference list feature.
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.MultImpl <em>Mult</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.MultImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getMult()
+     * @generated
+     */
+    EClass MULT = eINSTANCE.getMult();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESION__DEFINICIONES = eINSTANCE.getExpresion_Definiciones();
+    EReference MULT__VALUE = eINSTANCE.getMult_Value();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.ResImpl <em>Res</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.ResImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getRes()
+     * @generated
+     */
+    EClass RES = eINSTANCE.getRes();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RES__VALUE = eINSTANCE.getRes_Value();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.DivImpl <em>Div</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.DivImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getDiv()
+     * @generated
+     */
+    EClass DIV = eINSTANCE.getDiv();
+
+    /**
+     * The meta object literal for the '<em><b>Value1</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIV__VALUE1 = eINSTANCE.getDiv_Value1();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.StringExprImpl <em>String Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.StringExprImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getStringExpr()
+     * @generated
+     */
+    EClass STRING_EXPR = eINSTANCE.getStringExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Str</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STRING_EXPR__STR = eINSTANCE.getStringExpr_Str();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.BooleanExprImpl <em>Boolean Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.BooleanExprImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getBooleanExpr()
+     * @generated
+     */
+    EClass BOOLEAN_EXPR = eINSTANCE.getBooleanExpr();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.ExprValueImpl <em>Expr Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.ExprValueImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getExprValue()
+     * @generated
+     */
+    EClass EXPR_VALUE = eINSTANCE.getExprValue();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_VALUE__EXP = eINSTANCE.getExprValue_Exp();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.CallExprImpl <em>Call Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.CallExprImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getCallExpr()
+     * @generated
+     */
+    EClass CALL_EXPR = eINSTANCE.getCallExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Definicion</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CALL_EXPR__DEFINICION = eINSTANCE.getCallExpr_Definicion();
 
     /**
      * The meta object literal for the '<em><b>Parametros</b></em>' containment reference list feature.
@@ -878,7 +1677,185 @@ public interface PRPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESION__PARAMETROS = eINSTANCE.getExpresion_Parametros();
+    EReference CALL_EXPR__PARAMETROS = eINSTANCE.getCallExpr_Parametros();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.RefVariableImpl <em>Ref Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.RefVariableImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getRefVariable()
+     * @generated
+     */
+    EClass REF_VARIABLE = eINSTANCE.getRefVariable();
+
+    /**
+     * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_VARIABLE__REF = eINSTANCE.getRefVariable_Ref();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.IfExprImpl <em>If Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.IfExprImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getIfExpr()
+     * @generated
+     */
+    EClass IF_EXPR = eINSTANCE.getIfExpr();
+
+    /**
+     * The meta object literal for the '<em><b>If Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_EXPR__IF_EXPR = eINSTANCE.getIfExpr_IfExpr();
+
+    /**
+     * The meta object literal for the '<em><b>If True</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_EXPR__IF_TRUE = eINSTANCE.getIfExpr_IfTrue();
+
+    /**
+     * The meta object literal for the '<em><b>If False</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_EXPR__IF_FALSE = eINSTANCE.getIfExpr_IfFalse();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.ListExprImpl <em>List Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.ListExprImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getListExpr()
+     * @generated
+     */
+    EClass LIST_EXPR = eINSTANCE.getListExpr();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.ListValueImpl <em>List Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.ListValueImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getListValue()
+     * @generated
+     */
+    EClass LIST_VALUE = eINSTANCE.getListValue();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LIST_VALUE__EXPR = eINSTANCE.getListValue_Expr();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.ComplexListExprImpl <em>Complex List Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.ComplexListExprImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getComplexListExpr()
+     * @generated
+     */
+    EClass COMPLEX_LIST_EXPR = eINSTANCE.getComplexListExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEX_LIST_EXPR__OP = eINSTANCE.getComplexListExpr_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEX_LIST_EXPR__EXPR = eINSTANCE.getComplexListExpr_Expr();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.ListOpImpl <em>List Op</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.ListOpImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getListOp()
+     * @generated
+     */
+    EClass LIST_OP = eINSTANCE.getListOp();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LIST_OP__OP = eINSTANCE.getListOp_Op();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.CarImpl <em>Car</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.CarImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getCar()
+     * @generated
+     */
+    EClass CAR = eINSTANCE.getCar();
+
+    /**
+     * The meta object literal for the '<em><b>Car</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CAR__CAR = eINSTANCE.getCar_Car();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.CdrImpl <em>Cdr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.CdrImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getCdr()
+     * @generated
+     */
+    EClass CDR = eINSTANCE.getCdr();
+
+    /**
+     * The meta object literal for the '<em><b>Cdr</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CDR__CDR = eINSTANCE.getCdr_Cdr();
+
+    /**
+     * The meta object literal for the '{@link edu.upb.lp.isc.pR.impl.WhileExprImpl <em>While Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.upb.lp.isc.pR.impl.WhileExprImpl
+     * @see edu.upb.lp.isc.pR.impl.PRPackageImpl#getWhileExpr()
+     * @generated
+     */
+    EClass WHILE_EXPR = eINSTANCE.getWhileExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Expresiones</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHILE_EXPR__EXPRESIONES = eINSTANCE.getWhileExpr_Expresiones();
 
   }
 

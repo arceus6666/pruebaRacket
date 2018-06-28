@@ -3,6 +3,7 @@
  */
 package edu.upb.lp.isc.pR;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package edu.upb.lp.isc.pR;
  * @model
  * @generated
  */
-public interface StringValue extends Value
+public interface StringValue extends EObject
 {
   /**
    * Returns the value of the '<em><b>Str</b></em>' attribute.

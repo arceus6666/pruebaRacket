@@ -3,8 +3,8 @@ grammar edu.upb.lp.isc.PR with org.eclipse.xtext.common.Terminals
 generate pR "http://www.upb.edu/lp/isc/PR"
 
 Programa:
-	';''Author'':' STRING
-	';'name=ID
+	';' 'Author:' STRING
+	';' name=ID
 	(variables+=Variable)*	
 	(definiciones+=Definicion)*
 	('?' ejecuciones+=Expresion)*
@@ -15,40 +15,38 @@ Programa:
 Variable:
 	{Variable}
 	//(define id expr)
-	'(''define' name=ID value=Value/* | STRING | 'TRUE' | 'FALSE'*/')'
+	'(''define' name=ID expr=Expresion/* | STRING | 'TRUE' | 'FALSE'*/')'
 ;
 
 Definicion:
 	{Definicion}
 	//(define (head args) body ...+)
 	//value = (STRING | 'TRUE' | 'FALSE')
-	'(''define''('name=ID (args+=Argumento)*')'
-		'('operador=Operador (valores+=Expresion)+')'
+	'(''define''('name=ID (args+=Variable)*')'
+		e=Expresion
 	')'
 ;
 
-Value: RefValue | StringValue | IntValue;
-
+//Definicion:
+//	{Definicion}
+//	//(define (head args) body ...+)
+//	//value = (STRING | 'TRUE' | 'FALSE')
+//	'(''define''('name=ID (args+=Argumento)*')'
+//		'('definicion=[Definicion] (valores+=Expresion)+')'
+//	')'
+//;
 Expresion:
 	(IntExpr | StringExpr | BooleanExpr | 
-	RefVariable | IfExpr | CallExpr | ListExpr)
+	IfExpr | CallExpr | ListExpr | RefVariable )
 ;
 
-//Staticos
-RefValue:
-	ref = [Argumento]
-;
-
+//Statics
 StringValue:
 	str = STRING
 ;
 
 IntValue:
 	val = INT
-;
-
-Argumento:
-	name=ID
 ;
 
 IntExpr:
@@ -72,7 +70,7 @@ Res:
 
 Div:
 	{Div}
-	'(''/' value1=IntExpr value2=IntExpr')'
+	'(''/' value1+=IntExpr')'
 ;
 
 StringExpr:
@@ -84,11 +82,13 @@ BooleanExpr:
 	('true' | 'false')
 ;
 
-
+ExprValue:
+	exp = Expresion
+;
 //////////////
 
 CallExpr:
-	'('definiciones+=[Definicion] parametros+=(Value| Expresion)*')'
+	'('definicion=[Definicion] parametros+=(Expresion)*')'
 ;
 
 
@@ -102,26 +102,23 @@ IfExpr:
 	'('
 	
 	IfExpr=BooleanExpr IfTrue=BooleanExpr IfFalse=BooleanExpr
-	
+	//nani
 	')'
-	
-	
-	'TODO'
-;
-
-Operador:
-	'+'|'-'|'*'|'/'
 ;
 
 ListExpr:
-	ConsValue|ListValue|ComplexListExpr
+	//ConsValue|
+	ListValue|ComplexListExpr
 
 ;
 
+/* 
 ConsValue:
 	{ConsValue}
-	'(''cons' '\''(Expr+=Expresion)* (Expr+=Expresion)*')'
+	'(''cons' '\''(expr+=Expresion)* (expr+=Expresion)*')'
 ;
+*/
+
 
 ListValue:
 	{ListValue}
@@ -142,4 +139,11 @@ Car:
 ;
 Cdr:
 	cdr='cdr'
+;
+
+WhileExpr:
+	'while''('/*boolean expr*/')''{'
+		expresiones+=[Expresion]
+		
+	'}'
 ;

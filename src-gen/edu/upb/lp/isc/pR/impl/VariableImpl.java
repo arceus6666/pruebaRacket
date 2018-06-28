@@ -3,8 +3,8 @@
  */
 package edu.upb.lp.isc.pR.impl;
 
+import edu.upb.lp.isc.pR.Expresion;
 import edu.upb.lp.isc.pR.PRPackage;
-import edu.upb.lp.isc.pR.Value;
 import edu.upb.lp.isc.pR.Variable;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link edu.upb.lp.isc.pR.impl.VariableImpl#getName <em>Name</em>}</li>
- *   <li>{@link edu.upb.lp.isc.pR.impl.VariableImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link edu.upb.lp.isc.pR.impl.VariableImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,14 +53,14 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getExpr()
    * @generated
    * @ordered
    */
-  protected Value value;
+  protected Expresion expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -111,9 +111,9 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
    * <!-- end-user-doc -->
    * @generated
    */
-  public Value getValue()
+  public Expresion getExpr()
   {
-    return value;
+    return expr;
   }
 
   /**
@@ -121,13 +121,13 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValue(Value newValue, NotificationChain msgs)
+  public NotificationChain basicSetExpr(Expresion newExpr, NotificationChain msgs)
   {
-    Value oldValue = value;
-    value = newValue;
+    Expresion oldExpr = expr;
+    expr = newExpr;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PRPackage.VARIABLE__VALUE, oldValue, newValue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PRPackage.VARIABLE__EXPR, oldExpr, newExpr);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -138,20 +138,20 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(Value newValue)
+  public void setExpr(Expresion newExpr)
   {
-    if (newValue != value)
+    if (newExpr != expr)
     {
       NotificationChain msgs = null;
-      if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PRPackage.VARIABLE__VALUE, null, msgs);
-      if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PRPackage.VARIABLE__VALUE, null, msgs);
-      msgs = basicSetValue(newValue, msgs);
+      if (expr != null)
+        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PRPackage.VARIABLE__EXPR, null, msgs);
+      if (newExpr != null)
+        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PRPackage.VARIABLE__EXPR, null, msgs);
+      msgs = basicSetExpr(newExpr, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PRPackage.VARIABLE__VALUE, newValue, newValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, PRPackage.VARIABLE__EXPR, newExpr, newExpr));
   }
 
   /**
@@ -164,8 +164,8 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
   {
     switch (featureID)
     {
-      case PRPackage.VARIABLE__VALUE:
-        return basicSetValue(null, msgs);
+      case PRPackage.VARIABLE__EXPR:
+        return basicSetExpr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -182,8 +182,8 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
     {
       case PRPackage.VARIABLE__NAME:
         return getName();
-      case PRPackage.VARIABLE__VALUE:
-        return getValue();
+      case PRPackage.VARIABLE__EXPR:
+        return getExpr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -201,8 +201,8 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
       case PRPackage.VARIABLE__NAME:
         setName((String)newValue);
         return;
-      case PRPackage.VARIABLE__VALUE:
-        setValue((Value)newValue);
+      case PRPackage.VARIABLE__EXPR:
+        setExpr((Expresion)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -221,8 +221,8 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
       case PRPackage.VARIABLE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case PRPackage.VARIABLE__VALUE:
-        setValue((Value)null);
+      case PRPackage.VARIABLE__EXPR:
+        setExpr((Expresion)null);
         return;
     }
     super.eUnset(featureID);
@@ -240,8 +240,8 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
     {
       case PRPackage.VARIABLE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case PRPackage.VARIABLE__VALUE:
-        return value != null;
+      case PRPackage.VARIABLE__EXPR:
+        return expr != null;
     }
     return super.eIsSet(featureID);
   }
