@@ -4,18 +4,16 @@ generate pR "http://www.upb.edu/lp/isc/PR"
 
 Programa:
 	';' 'Author:' STRING
-	';' name=ID
-	(variables+=Variable)*	
+	';' name=ID	
 	(definiciones+=Definicion)*
-	('?' ejecuciones+=Expresion)*
-	
+	('?' ejecuciones+=(Expresion))*
+	//|'('Expresion')'
 ;
 
 
 Variable:
-	{Variable}
 	//(define id expr)
-	'(''define' name=ID expr=Expresion/* | STRING | 'TRUE' | 'FALSE'*/')'
+	name=ID
 ;
 
 Definicion:
@@ -37,7 +35,7 @@ Definicion:
 //;
 Expresion:
 	(IntExpr | StringExpr | BooleanExpr | 
-	IfExpr | CallExpr | ListExpr | RefVariable )
+	IfExpr | CallExpr | ListExpr | RefVariable | ReadExpr)
 ;
 
 //Statics
@@ -53,24 +51,27 @@ IntExpr:
 	IntValue | Sum | Mult | Res | Div
 ;
 
+VariableRef:
+	var=[Variable]
+;
 Sum:
 	{Sum}
-	'(''+' value+=IntExpr*')'
+	'(''+' value+=(IntExpr|CallExpr|VariableRef)*')'
 ;
 
 Mult:
 	{Mult}
-	'(''*' value+=IntExpr*')'
+	'(''*' value+=(IntExpr|CallExpr|VariableRef)*')'
 ;
 
 Res:
 	{Res}
-	'(''-' value+=IntExpr*')'
+	'(''-' value+=(IntExpr|CallExpr|VariableRef)*')'
 ;
 
 Div:
 	{Div}
-	'(''/' value1+=IntExpr')'
+	'(''/' value+=(IntExpr|CallExpr|VariableRef)*')'
 ;
 
 StringExpr:
@@ -84,6 +85,10 @@ BooleanExpr:
 
 ExprValue:
 	exp = Expresion
+;
+
+ReadExpr:
+	ID
 ;
 //////////////
 
@@ -127,7 +132,7 @@ ListValue:
 ;
 
 ComplexListExpr:
-		'(' op=ListOp (expr+=ListExpr)+')'
+		'(' op=ListOp (expr+=ListExpr)*')'
 ;
 
 ListOp:
