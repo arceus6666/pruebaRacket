@@ -31,7 +31,7 @@ Value: RefValue | StringValue | IntValue;
 
 Expresion:
 	(IntExpr | StringExpr | BooleanExpr | 
-	RefVariable | IfExpr | CallExpr)
+	RefVariable | IfExpr | CallExpr | ListExpr)
 ;
 
 //Staticos
@@ -99,12 +99,47 @@ RefVariable:
 IfExpr:
 	{IfExpr}
 	//TODO hacer un if
+	'('
+	
+	IfExpr=BooleanExpr IfTrue=BooleanExpr IfFalse=BooleanExpr
+	
+	')'
+	
+	
 	'TODO'
 ;
-
-
 
 Operador:
 	'+'|'-'|'*'|'/'
 ;
 
+ListExpr:
+	ConsValue|ListValue|ComplexListExpr
+
+;
+
+ConsValue:
+	{ConsValue}
+	'(''cons' '\''(Expr+=Expresion)* (Expr+=Expresion)*')'
+;
+
+ListValue:
+	{ListValue}
+	'(''list' (Expr+=Expresion
+		     (','Expr+=Expresion)*)?  ')'
+;
+
+ComplexListExpr:
+		'(' op=ListOp (expr+=ListExpr)+')'
+;
+
+ListOp:
+//	op=('car'|'cdr'|'length')
+op=(Car|Cdr)
+;
+Car:
+	car='car'
+;
+Cdr:
+	cdr='cdr'
+;
