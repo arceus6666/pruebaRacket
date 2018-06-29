@@ -5,29 +5,35 @@ package edu.upb.lp.isc.pR.impl;
 
 import edu.upb.lp.isc.pR.BooleanExpr;
 import edu.upb.lp.isc.pR.CallExpr;
-import edu.upb.lp.isc.pR.Car;
-import edu.upb.lp.isc.pR.Cdr;
-import edu.upb.lp.isc.pR.ComplexListExpr;
+import edu.upb.lp.isc.pR.CarList;
+import edu.upb.lp.isc.pR.CdrList;
+import edu.upb.lp.isc.pR.CheckBoolExpr;
+import edu.upb.lp.isc.pR.ConsList;
 import edu.upb.lp.isc.pR.Definicion;
 import edu.upb.lp.isc.pR.Div;
-import edu.upb.lp.isc.pR.ExprValue;
+import edu.upb.lp.isc.pR.EqualsBoolExpr;
 import edu.upb.lp.isc.pR.Expresion;
 import edu.upb.lp.isc.pR.IfExpr;
 import edu.upb.lp.isc.pR.IntExpr;
 import edu.upb.lp.isc.pR.IntValue;
+import edu.upb.lp.isc.pR.IsEmptyExpr;
+import edu.upb.lp.isc.pR.LengthList;
 import edu.upb.lp.isc.pR.ListExpr;
-import edu.upb.lp.isc.pR.ListOp;
-import edu.upb.lp.isc.pR.ListValue;
+import edu.upb.lp.isc.pR.ListList;
+import edu.upb.lp.isc.pR.MayorBoolExpr;
+import edu.upb.lp.isc.pR.MenorBoolExpr;
 import edu.upb.lp.isc.pR.Mult;
 import edu.upb.lp.isc.pR.PRFactory;
 import edu.upb.lp.isc.pR.PRPackage;
 import edu.upb.lp.isc.pR.Programa;
+import edu.upb.lp.isc.pR.ReadExpr;
 import edu.upb.lp.isc.pR.RefVariable;
 import edu.upb.lp.isc.pR.Res;
 import edu.upb.lp.isc.pR.StringExpr;
 import edu.upb.lp.isc.pR.StringValue;
 import edu.upb.lp.isc.pR.Sum;
 import edu.upb.lp.isc.pR.Variable;
+import edu.upb.lp.isc.pR.VariableRef;
 import edu.upb.lp.isc.pR.WhileExpr;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -99,6 +105,13 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass variableRefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass sumEClass = null;
 
   /**
@@ -141,7 +154,42 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass exprValueEClass = null;
+  private EClass checkBoolExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass equalsBoolExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass menorBoolExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mayorBoolExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass isEmptyExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass readExprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -176,35 +224,35 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass listValueEClass = null;
+  private EClass consListEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass complexListExprEClass = null;
+  private EClass listListEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass listOpEClass = null;
+  private EClass carListEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass carEClass = null;
+  private EClass cdrListEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass cdrEClass = null;
+  private EClass lengthListEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -301,7 +349,7 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPrograma_Variables()
+  public EReference getPrograma_Definiciones()
   {
     return (EReference)programaEClass.getEStructuralFeatures().get(1);
   }
@@ -311,19 +359,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPrograma_Definiciones()
-  {
-    return (EReference)programaEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getPrograma_Ejecuciones()
   {
-    return (EReference)programaEClass.getEStructuralFeatures().get(3);
+    return (EReference)programaEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -344,16 +382,6 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
   public EAttribute getVariable_Name()
   {
     return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getVariable_Expr()
-  {
-    return (EReference)variableEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -461,6 +489,26 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getVariableRef()
+  {
+    return variableRefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVariableRef_Var()
+  {
+    return (EReference)variableRefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSum()
   {
     return sumEClass;
@@ -531,7 +579,7 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDiv_Value1()
+  public EReference getDiv_Value()
   {
     return (EReference)divEClass.getEStructuralFeatures().get(0);
   }
@@ -571,9 +619,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getExprValue()
+  public EAttribute getBooleanExpr_Boolean()
   {
-    return exprValueEClass;
+    return (EAttribute)booleanExprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -581,9 +629,79 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExprValue_Exp()
+  public EClass getCheckBoolExpr()
   {
-    return (EReference)exprValueEClass.getEStructuralFeatures().get(0);
+    return checkBoolExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCheckBoolExpr_E()
+  {
+    return (EReference)checkBoolExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEqualsBoolExpr()
+  {
+    return equalsBoolExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMenorBoolExpr()
+  {
+    return menorBoolExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMayorBoolExpr()
+  {
+    return mayorBoolExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIsEmptyExpr()
+  {
+    return isEmptyExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIsEmptyExpr_Arg()
+  {
+    return (EReference)isEmptyExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getReadExpr()
+  {
+    return readExprEClass;
   }
 
   /**
@@ -651,7 +769,7 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIfExpr_IfExpr()
+  public EReference getIfExpr_E()
   {
     return (EReference)ifExprEClass.getEStructuralFeatures().get(0);
   }
@@ -661,7 +779,7 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIfExpr_IfTrue()
+  public EReference getIfExpr_TrueE()
   {
     return (EReference)ifExprEClass.getEStructuralFeatures().get(1);
   }
@@ -671,7 +789,7 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIfExpr_IfFalse()
+  public EReference getIfExpr_FalseE()
   {
     return (EReference)ifExprEClass.getEStructuralFeatures().get(2);
   }
@@ -691,9 +809,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getListValue()
+  public EClass getConsList()
   {
-    return listValueEClass;
+    return consListEClass;
   }
 
   /**
@@ -701,9 +819,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getListValue_Expr()
+  public EReference getConsList_Expr()
   {
-    return (EReference)listValueEClass.getEStructuralFeatures().get(0);
+    return (EReference)consListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -711,9 +829,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getComplexListExpr()
+  public EReference getConsList_List()
   {
-    return complexListExprEClass;
+    return (EReference)consListEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -721,9 +839,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComplexListExpr_Op()
+  public EClass getListList()
   {
-    return (EReference)complexListExprEClass.getEStructuralFeatures().get(0);
+    return listListEClass;
   }
 
   /**
@@ -731,9 +849,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComplexListExpr_Expr()
+  public EReference getListList_Params()
   {
-    return (EReference)complexListExprEClass.getEStructuralFeatures().get(1);
+    return (EReference)listListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -741,9 +859,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getListOp()
+  public EClass getCarList()
   {
-    return listOpEClass;
+    return carListEClass;
   }
 
   /**
@@ -751,9 +869,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getListOp_Op()
+  public EReference getCarList_List()
   {
-    return (EReference)listOpEClass.getEStructuralFeatures().get(0);
+    return (EReference)carListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -761,9 +879,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getCar()
+  public EClass getCdrList()
   {
-    return carEClass;
+    return cdrListEClass;
   }
 
   /**
@@ -771,9 +889,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCar_Car()
+  public EReference getCdrList_List()
   {
-    return (EAttribute)carEClass.getEStructuralFeatures().get(0);
+    return (EReference)cdrListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -781,9 +899,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getCdr()
+  public EClass getLengthList()
   {
-    return cdrEClass;
+    return lengthListEClass;
   }
 
   /**
@@ -791,9 +909,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCdr_Cdr()
+  public EReference getLengthList_List()
   {
-    return (EAttribute)cdrEClass.getEStructuralFeatures().get(0);
+    return (EReference)lengthListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -848,13 +966,11 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
     // Create classes and their features
     programaEClass = createEClass(PROGRAMA);
     createEAttribute(programaEClass, PROGRAMA__NAME);
-    createEReference(programaEClass, PROGRAMA__VARIABLES);
     createEReference(programaEClass, PROGRAMA__DEFINICIONES);
     createEReference(programaEClass, PROGRAMA__EJECUCIONES);
 
     variableEClass = createEClass(VARIABLE);
     createEAttribute(variableEClass, VARIABLE__NAME);
-    createEReference(variableEClass, VARIABLE__EXPR);
 
     definicionEClass = createEClass(DEFINICION);
     createEAttribute(definicionEClass, DEFINICION__NAME);
@@ -871,6 +987,9 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
 
     intExprEClass = createEClass(INT_EXPR);
 
+    variableRefEClass = createEClass(VARIABLE_REF);
+    createEReference(variableRefEClass, VARIABLE_REF__VAR);
+
     sumEClass = createEClass(SUM);
     createEReference(sumEClass, SUM__VALUE);
 
@@ -881,15 +1000,27 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
     createEReference(resEClass, RES__VALUE);
 
     divEClass = createEClass(DIV);
-    createEReference(divEClass, DIV__VALUE1);
+    createEReference(divEClass, DIV__VALUE);
 
     stringExprEClass = createEClass(STRING_EXPR);
     createEReference(stringExprEClass, STRING_EXPR__STR);
 
     booleanExprEClass = createEClass(BOOLEAN_EXPR);
+    createEAttribute(booleanExprEClass, BOOLEAN_EXPR__BOOLEAN);
 
-    exprValueEClass = createEClass(EXPR_VALUE);
-    createEReference(exprValueEClass, EXPR_VALUE__EXP);
+    checkBoolExprEClass = createEClass(CHECK_BOOL_EXPR);
+    createEReference(checkBoolExprEClass, CHECK_BOOL_EXPR__E);
+
+    equalsBoolExprEClass = createEClass(EQUALS_BOOL_EXPR);
+
+    menorBoolExprEClass = createEClass(MENOR_BOOL_EXPR);
+
+    mayorBoolExprEClass = createEClass(MAYOR_BOOL_EXPR);
+
+    isEmptyExprEClass = createEClass(IS_EMPTY_EXPR);
+    createEReference(isEmptyExprEClass, IS_EMPTY_EXPR__ARG);
+
+    readExprEClass = createEClass(READ_EXPR);
 
     callExprEClass = createEClass(CALL_EXPR);
     createEReference(callExprEClass, CALL_EXPR__DEFINICION);
@@ -899,27 +1030,27 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
     createEReference(refVariableEClass, REF_VARIABLE__REF);
 
     ifExprEClass = createEClass(IF_EXPR);
-    createEReference(ifExprEClass, IF_EXPR__IF_EXPR);
-    createEReference(ifExprEClass, IF_EXPR__IF_TRUE);
-    createEReference(ifExprEClass, IF_EXPR__IF_FALSE);
+    createEReference(ifExprEClass, IF_EXPR__E);
+    createEReference(ifExprEClass, IF_EXPR__TRUE_E);
+    createEReference(ifExprEClass, IF_EXPR__FALSE_E);
 
     listExprEClass = createEClass(LIST_EXPR);
 
-    listValueEClass = createEClass(LIST_VALUE);
-    createEReference(listValueEClass, LIST_VALUE__EXPR);
+    consListEClass = createEClass(CONS_LIST);
+    createEReference(consListEClass, CONS_LIST__EXPR);
+    createEReference(consListEClass, CONS_LIST__LIST);
 
-    complexListExprEClass = createEClass(COMPLEX_LIST_EXPR);
-    createEReference(complexListExprEClass, COMPLEX_LIST_EXPR__OP);
-    createEReference(complexListExprEClass, COMPLEX_LIST_EXPR__EXPR);
+    listListEClass = createEClass(LIST_LIST);
+    createEReference(listListEClass, LIST_LIST__PARAMS);
 
-    listOpEClass = createEClass(LIST_OP);
-    createEReference(listOpEClass, LIST_OP__OP);
+    carListEClass = createEClass(CAR_LIST);
+    createEReference(carListEClass, CAR_LIST__LIST);
 
-    carEClass = createEClass(CAR);
-    createEAttribute(carEClass, CAR__CAR);
+    cdrListEClass = createEClass(CDR_LIST);
+    createEReference(cdrListEClass, CDR_LIST__LIST);
 
-    cdrEClass = createEClass(CDR);
-    createEAttribute(cdrEClass, CDR__CDR);
+    lengthListEClass = createEClass(LENGTH_LIST);
+    createEReference(lengthListEClass, LENGTH_LIST__LIST);
 
     whileExprEClass = createEClass(WHILE_EXPR);
     createEReference(whileExprEClass, WHILE_EXPR__EXPRESIONES);
@@ -962,23 +1093,29 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
     divEClass.getESuperTypes().add(this.getIntExpr());
     stringExprEClass.getESuperTypes().add(this.getExpresion());
     booleanExprEClass.getESuperTypes().add(this.getExpresion());
+    checkBoolExprEClass.getESuperTypes().add(this.getExpresion());
+    equalsBoolExprEClass.getESuperTypes().add(this.getCheckBoolExpr());
+    menorBoolExprEClass.getESuperTypes().add(this.getCheckBoolExpr());
+    mayorBoolExprEClass.getESuperTypes().add(this.getCheckBoolExpr());
+    readExprEClass.getESuperTypes().add(this.getExpresion());
     callExprEClass.getESuperTypes().add(this.getExpresion());
     refVariableEClass.getESuperTypes().add(this.getExpresion());
     ifExprEClass.getESuperTypes().add(this.getExpresion());
     listExprEClass.getESuperTypes().add(this.getExpresion());
-    listValueEClass.getESuperTypes().add(this.getListExpr());
-    complexListExprEClass.getESuperTypes().add(this.getListExpr());
+    consListEClass.getESuperTypes().add(this.getListExpr());
+    listListEClass.getESuperTypes().add(this.getListExpr());
+    carListEClass.getESuperTypes().add(this.getListExpr());
+    cdrListEClass.getESuperTypes().add(this.getListExpr());
+    lengthListEClass.getESuperTypes().add(this.getListExpr());
 
     // Initialize classes and features; add operations and parameters
     initEClass(programaEClass, Programa.class, "Programa", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPrograma_Name(), ecorePackage.getEString(), "name", null, 0, 1, Programa.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPrograma_Variables(), this.getVariable(), null, "variables", null, 0, -1, Programa.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrograma_Definiciones(), this.getDefinicion(), null, "definiciones", null, 0, -1, Programa.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrograma_Ejecuciones(), this.getExpresion(), null, "ejecuciones", null, 0, -1, Programa.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVariable_Expr(), this.getExpresion(), null, "expr", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(definicionEClass, Definicion.class, "Definicion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDefinicion_Name(), ecorePackage.getEString(), "name", null, 0, 1, Definicion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -995,25 +1132,40 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
 
     initEClass(intExprEClass, IntExpr.class, "IntExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(variableRefEClass, VariableRef.class, "VariableRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVariableRef_Var(), this.getVariable(), null, "var", null, 0, 1, VariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(sumEClass, Sum.class, "Sum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSum_Value(), this.getIntExpr(), null, "value", null, 0, -1, Sum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSum_Value(), ecorePackage.getEObject(), null, "value", null, 0, -1, Sum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(multEClass, Mult.class, "Mult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMult_Value(), this.getIntExpr(), null, "value", null, 0, -1, Mult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMult_Value(), ecorePackage.getEObject(), null, "value", null, 0, -1, Mult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(resEClass, Res.class, "Res", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRes_Value(), this.getIntExpr(), null, "value", null, 0, -1, Res.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRes_Value(), ecorePackage.getEObject(), null, "value", null, 0, -1, Res.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(divEClass, Div.class, "Div", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDiv_Value1(), this.getIntExpr(), null, "value1", null, 0, -1, Div.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDiv_Value(), ecorePackage.getEObject(), null, "value", null, 0, -1, Div.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stringExprEClass, StringExpr.class, "StringExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStringExpr_Str(), this.getStringValue(), null, "str", null, 0, 1, StringExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(booleanExprEClass, BooleanExpr.class, "BooleanExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBooleanExpr_Boolean(), ecorePackage.getEString(), "boolean", null, 0, 1, BooleanExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(exprValueEClass, ExprValue.class, "ExprValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExprValue_Exp(), this.getExpresion(), null, "exp", null, 0, 1, ExprValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(checkBoolExprEClass, CheckBoolExpr.class, "CheckBoolExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCheckBoolExpr_E(), this.getExpresion(), null, "e", null, 0, -1, CheckBoolExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(equalsBoolExprEClass, EqualsBoolExpr.class, "EqualsBoolExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(menorBoolExprEClass, MenorBoolExpr.class, "MenorBoolExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(mayorBoolExprEClass, MayorBoolExpr.class, "MayorBoolExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(isEmptyExprEClass, IsEmptyExpr.class, "IsEmptyExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIsEmptyExpr_Arg(), this.getListExpr(), null, "arg", null, 0, 1, IsEmptyExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(readExprEClass, ReadExpr.class, "ReadExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(callExprEClass, CallExpr.class, "CallExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCallExpr_Definicion(), this.getDefinicion(), null, "definicion", null, 0, 1, CallExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1023,27 +1175,27 @@ public class PRPackageImpl extends EPackageImpl implements PRPackage
     initEReference(getRefVariable_Ref(), this.getVariable(), null, "ref", null, 0, 1, RefVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ifExprEClass, IfExpr.class, "IfExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getIfExpr_IfExpr(), this.getBooleanExpr(), null, "IfExpr", null, 0, 1, IfExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIfExpr_IfTrue(), this.getBooleanExpr(), null, "IfTrue", null, 0, 1, IfExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIfExpr_IfFalse(), this.getBooleanExpr(), null, "IfFalse", null, 0, 1, IfExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfExpr_E(), this.getExpresion(), null, "e", null, 0, 1, IfExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfExpr_TrueE(), this.getExpresion(), null, "trueE", null, 0, -1, IfExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfExpr_FalseE(), this.getExpresion(), null, "falseE", null, 0, 1, IfExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(listExprEClass, ListExpr.class, "ListExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(listValueEClass, ListValue.class, "ListValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getListValue_Expr(), this.getExpresion(), null, "Expr", null, 0, -1, ListValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(consListEClass, ConsList.class, "ConsList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConsList_Expr(), this.getExpresion(), null, "expr", null, 0, -1, ConsList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConsList_List(), this.getListExpr(), null, "list", null, 0, 1, ConsList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(complexListExprEClass, ComplexListExpr.class, "ComplexListExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getComplexListExpr_Op(), this.getListOp(), null, "op", null, 0, 1, ComplexListExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComplexListExpr_Expr(), this.getListExpr(), null, "expr", null, 0, -1, ComplexListExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(listListEClass, ListList.class, "ListList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getListList_Params(), this.getExpresion(), null, "params", null, 0, -1, ListList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(listOpEClass, ListOp.class, "ListOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getListOp_Op(), ecorePackage.getEObject(), null, "op", null, 0, 1, ListOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(carListEClass, CarList.class, "CarList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCarList_List(), this.getListExpr(), null, "list", null, 0, 1, CarList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(carEClass, Car.class, "Car", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCar_Car(), ecorePackage.getEString(), "car", null, 0, 1, Car.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(cdrListEClass, CdrList.class, "CdrList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCdrList_List(), this.getListExpr(), null, "list", null, 0, 1, CdrList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(cdrEClass, Cdr.class, "Cdr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCdr_Cdr(), ecorePackage.getEString(), "cdr", null, 0, 1, Cdr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(lengthListEClass, LengthList.class, "LengthList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLengthList_List(), this.getVariable(), null, "list", null, 0, 1, LengthList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(whileExprEClass, WhileExpr.class, "WhileExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getWhileExpr_Expresiones(), this.getExpresion(), null, "expresiones", null, 0, -1, WhileExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

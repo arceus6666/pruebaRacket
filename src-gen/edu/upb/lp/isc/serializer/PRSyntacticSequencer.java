@@ -11,9 +11,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -21,12 +18,10 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class PRSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected PRGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_BooleanExpr_FalseKeyword_1_1_or_TrueKeyword_1_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (PRGrammarAccess) access;
-		match_BooleanExpr_FalseKeyword_1_1_or_TrueKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getBooleanExprAccess().getFalseKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getBooleanExprAccess().getTrueKeyword_1_0()));
 	}
 	
 	@Override
@@ -54,21 +49,8 @@ public class PRSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_BooleanExpr_FalseKeyword_1_1_or_TrueKeyword_1_0.equals(syntax))
-				emit_BooleanExpr_FalseKeyword_1_1_or_TrueKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     'false' | 'true'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
-	 */
-	protected void emit_BooleanExpr_FalseKeyword_1_1_or_TrueKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }

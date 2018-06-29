@@ -72,22 +72,28 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
       case PRPackage.STRING_VALUE: return createStringValue();
       case PRPackage.INT_VALUE: return createIntValue();
       case PRPackage.INT_EXPR: return createIntExpr();
+      case PRPackage.VARIABLE_REF: return createVariableRef();
       case PRPackage.SUM: return createSum();
       case PRPackage.MULT: return createMult();
       case PRPackage.RES: return createRes();
       case PRPackage.DIV: return createDiv();
       case PRPackage.STRING_EXPR: return createStringExpr();
       case PRPackage.BOOLEAN_EXPR: return createBooleanExpr();
-      case PRPackage.EXPR_VALUE: return createExprValue();
+      case PRPackage.CHECK_BOOL_EXPR: return createCheckBoolExpr();
+      case PRPackage.EQUALS_BOOL_EXPR: return createEqualsBoolExpr();
+      case PRPackage.MENOR_BOOL_EXPR: return createMenorBoolExpr();
+      case PRPackage.MAYOR_BOOL_EXPR: return createMayorBoolExpr();
+      case PRPackage.IS_EMPTY_EXPR: return createIsEmptyExpr();
+      case PRPackage.READ_EXPR: return createReadExpr();
       case PRPackage.CALL_EXPR: return createCallExpr();
       case PRPackage.REF_VARIABLE: return createRefVariable();
       case PRPackage.IF_EXPR: return createIfExpr();
       case PRPackage.LIST_EXPR: return createListExpr();
-      case PRPackage.LIST_VALUE: return createListValue();
-      case PRPackage.COMPLEX_LIST_EXPR: return createComplexListExpr();
-      case PRPackage.LIST_OP: return createListOp();
-      case PRPackage.CAR: return createCar();
-      case PRPackage.CDR: return createCdr();
+      case PRPackage.CONS_LIST: return createConsList();
+      case PRPackage.LIST_LIST: return createListList();
+      case PRPackage.CAR_LIST: return createCarList();
+      case PRPackage.CDR_LIST: return createCdrList();
+      case PRPackage.LENGTH_LIST: return createLengthList();
       case PRPackage.WHILE_EXPR: return createWhileExpr();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -176,6 +182,17 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public VariableRef createVariableRef()
+  {
+    VariableRefImpl variableRef = new VariableRefImpl();
+    return variableRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Sum createSum()
   {
     SumImpl sum = new SumImpl();
@@ -242,10 +259,65 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExprValue createExprValue()
+  public CheckBoolExpr createCheckBoolExpr()
   {
-    ExprValueImpl exprValue = new ExprValueImpl();
-    return exprValue;
+    CheckBoolExprImpl checkBoolExpr = new CheckBoolExprImpl();
+    return checkBoolExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EqualsBoolExpr createEqualsBoolExpr()
+  {
+    EqualsBoolExprImpl equalsBoolExpr = new EqualsBoolExprImpl();
+    return equalsBoolExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MenorBoolExpr createMenorBoolExpr()
+  {
+    MenorBoolExprImpl menorBoolExpr = new MenorBoolExprImpl();
+    return menorBoolExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MayorBoolExpr createMayorBoolExpr()
+  {
+    MayorBoolExprImpl mayorBoolExpr = new MayorBoolExprImpl();
+    return mayorBoolExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IsEmptyExpr createIsEmptyExpr()
+  {
+    IsEmptyExprImpl isEmptyExpr = new IsEmptyExprImpl();
+    return isEmptyExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReadExpr createReadExpr()
+  {
+    ReadExprImpl readExpr = new ReadExprImpl();
+    return readExpr;
   }
 
   /**
@@ -297,10 +369,10 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ListValue createListValue()
+  public ConsList createConsList()
   {
-    ListValueImpl listValue = new ListValueImpl();
-    return listValue;
+    ConsListImpl consList = new ConsListImpl();
+    return consList;
   }
 
   /**
@@ -308,10 +380,10 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ComplexListExpr createComplexListExpr()
+  public ListList createListList()
   {
-    ComplexListExprImpl complexListExpr = new ComplexListExprImpl();
-    return complexListExpr;
+    ListListImpl listList = new ListListImpl();
+    return listList;
   }
 
   /**
@@ -319,10 +391,10 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ListOp createListOp()
+  public CarList createCarList()
   {
-    ListOpImpl listOp = new ListOpImpl();
-    return listOp;
+    CarListImpl carList = new CarListImpl();
+    return carList;
   }
 
   /**
@@ -330,10 +402,10 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Car createCar()
+  public CdrList createCdrList()
   {
-    CarImpl car = new CarImpl();
-    return car;
+    CdrListImpl cdrList = new CdrListImpl();
+    return cdrList;
   }
 
   /**
@@ -341,10 +413,10 @@ public class PRFactoryImpl extends EFactoryImpl implements PRFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Cdr createCdr()
+  public LengthList createLengthList()
   {
-    CdrImpl cdr = new CdrImpl();
-    return cdr;
+    LengthListImpl lengthList = new LengthListImpl();
+    return lengthList;
   }
 
   /**

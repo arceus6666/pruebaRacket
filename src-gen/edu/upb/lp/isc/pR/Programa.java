@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link edu.upb.lp.isc.pR.Programa#getName <em>Name</em>}</li>
- *   <li>{@link edu.upb.lp.isc.pR.Programa#getVariables <em>Variables</em>}</li>
  *   <li>{@link edu.upb.lp.isc.pR.Programa#getDefiniciones <em>Definiciones</em>}</li>
  *   <li>{@link edu.upb.lp.isc.pR.Programa#getEjecuciones <em>Ejecuciones</em>}</li>
  * </ul>
@@ -53,22 +52,6 @@ public interface Programa extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
-   * The list contents are of type {@link edu.upb.lp.isc.pR.Variable}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Variables</em>' containment reference list.
-   * @see edu.upb.lp.isc.pR.PRPackage#getPrograma_Variables()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Variable> getVariables();
 
   /**
    * Returns the value of the '<em><b>Definiciones</b></em>' containment reference list.

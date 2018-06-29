@@ -111,6 +111,11 @@ public class PRAdapterFactory extends AdapterFactoryImpl
         return createIntExprAdapter();
       }
       @Override
+      public Adapter caseVariableRef(VariableRef object)
+      {
+        return createVariableRefAdapter();
+      }
+      @Override
       public Adapter caseSum(Sum object)
       {
         return createSumAdapter();
@@ -141,9 +146,34 @@ public class PRAdapterFactory extends AdapterFactoryImpl
         return createBooleanExprAdapter();
       }
       @Override
-      public Adapter caseExprValue(ExprValue object)
+      public Adapter caseCheckBoolExpr(CheckBoolExpr object)
       {
-        return createExprValueAdapter();
+        return createCheckBoolExprAdapter();
+      }
+      @Override
+      public Adapter caseEqualsBoolExpr(EqualsBoolExpr object)
+      {
+        return createEqualsBoolExprAdapter();
+      }
+      @Override
+      public Adapter caseMenorBoolExpr(MenorBoolExpr object)
+      {
+        return createMenorBoolExprAdapter();
+      }
+      @Override
+      public Adapter caseMayorBoolExpr(MayorBoolExpr object)
+      {
+        return createMayorBoolExprAdapter();
+      }
+      @Override
+      public Adapter caseIsEmptyExpr(IsEmptyExpr object)
+      {
+        return createIsEmptyExprAdapter();
+      }
+      @Override
+      public Adapter caseReadExpr(ReadExpr object)
+      {
+        return createReadExprAdapter();
       }
       @Override
       public Adapter caseCallExpr(CallExpr object)
@@ -166,29 +196,29 @@ public class PRAdapterFactory extends AdapterFactoryImpl
         return createListExprAdapter();
       }
       @Override
-      public Adapter caseListValue(ListValue object)
+      public Adapter caseConsList(ConsList object)
       {
-        return createListValueAdapter();
+        return createConsListAdapter();
       }
       @Override
-      public Adapter caseComplexListExpr(ComplexListExpr object)
+      public Adapter caseListList(ListList object)
       {
-        return createComplexListExprAdapter();
+        return createListListAdapter();
       }
       @Override
-      public Adapter caseListOp(ListOp object)
+      public Adapter caseCarList(CarList object)
       {
-        return createListOpAdapter();
+        return createCarListAdapter();
       }
       @Override
-      public Adapter caseCar(Car object)
+      public Adapter caseCdrList(CdrList object)
       {
-        return createCarAdapter();
+        return createCdrListAdapter();
       }
       @Override
-      public Adapter caseCdr(Cdr object)
+      public Adapter caseLengthList(LengthList object)
       {
-        return createCdrAdapter();
+        return createLengthListAdapter();
       }
       @Override
       public Adapter caseWhileExpr(WhileExpr object)
@@ -323,6 +353,21 @@ public class PRAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.VariableRef <em>Variable Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see edu.upb.lp.isc.pR.VariableRef
+   * @generated
+   */
+  public Adapter createVariableRefAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.Sum <em>Sum</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -413,16 +458,91 @@ public class PRAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.ExprValue <em>Expr Value</em>}'.
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.CheckBoolExpr <em>Check Bool Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see edu.upb.lp.isc.pR.ExprValue
+   * @see edu.upb.lp.isc.pR.CheckBoolExpr
    * @generated
    */
-  public Adapter createExprValueAdapter()
+  public Adapter createCheckBoolExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.EqualsBoolExpr <em>Equals Bool Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see edu.upb.lp.isc.pR.EqualsBoolExpr
+   * @generated
+   */
+  public Adapter createEqualsBoolExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.MenorBoolExpr <em>Menor Bool Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see edu.upb.lp.isc.pR.MenorBoolExpr
+   * @generated
+   */
+  public Adapter createMenorBoolExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.MayorBoolExpr <em>Mayor Bool Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see edu.upb.lp.isc.pR.MayorBoolExpr
+   * @generated
+   */
+  public Adapter createMayorBoolExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.IsEmptyExpr <em>Is Empty Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see edu.upb.lp.isc.pR.IsEmptyExpr
+   * @generated
+   */
+  public Adapter createIsEmptyExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.ReadExpr <em>Read Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see edu.upb.lp.isc.pR.ReadExpr
+   * @generated
+   */
+  public Adapter createReadExprAdapter()
   {
     return null;
   }
@@ -488,76 +608,76 @@ public class PRAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.ListValue <em>List Value</em>}'.
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.ConsList <em>Cons List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see edu.upb.lp.isc.pR.ListValue
+   * @see edu.upb.lp.isc.pR.ConsList
    * @generated
    */
-  public Adapter createListValueAdapter()
+  public Adapter createConsListAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.ComplexListExpr <em>Complex List Expr</em>}'.
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.ListList <em>List List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see edu.upb.lp.isc.pR.ComplexListExpr
+   * @see edu.upb.lp.isc.pR.ListList
    * @generated
    */
-  public Adapter createComplexListExprAdapter()
+  public Adapter createListListAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.ListOp <em>List Op</em>}'.
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.CarList <em>Car List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see edu.upb.lp.isc.pR.ListOp
+   * @see edu.upb.lp.isc.pR.CarList
    * @generated
    */
-  public Adapter createListOpAdapter()
+  public Adapter createCarListAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.Car <em>Car</em>}'.
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.CdrList <em>Cdr List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see edu.upb.lp.isc.pR.Car
+   * @see edu.upb.lp.isc.pR.CdrList
    * @generated
    */
-  public Adapter createCarAdapter()
+  public Adapter createCdrListAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.Cdr <em>Cdr</em>}'.
+   * Creates a new adapter for an object of class '{@link edu.upb.lp.isc.pR.LengthList <em>Length List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see edu.upb.lp.isc.pR.Cdr
+   * @see edu.upb.lp.isc.pR.LengthList
    * @generated
    */
-  public Adapter createCdrAdapter()
+  public Adapter createLengthListAdapter()
   {
     return null;
   }

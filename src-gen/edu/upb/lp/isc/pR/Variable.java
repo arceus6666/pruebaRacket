@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link edu.upb.lp.isc.pR.Variable#getName <em>Name</em>}</li>
- *   <li>{@link edu.upb.lp.isc.pR.Variable#getExpr <em>Expr</em>}</li>
  * </ul>
  *
  * @see edu.upb.lp.isc.pR.PRPackage#getVariable()
@@ -49,31 +48,5 @@ public interface Variable extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Expr</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expresion)
-   * @see edu.upb.lp.isc.pR.PRPackage#getVariable_Expr()
-   * @model containment="true"
-   * @generated
-   */
-  Expresion getExpr();
-
-  /**
-   * Sets the value of the '{@link edu.upb.lp.isc.pR.Variable#getExpr <em>Expr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expr</em>' containment reference.
-   * @see #getExpr()
-   * @generated
-   */
-  void setExpr(Expresion value);
 
 } // Variable

@@ -8,13 +8,11 @@
       fileExtensions="pr" ecorePackage="PR.ecore#/">
     <genClasses ecoreClass="PR.ecore#//Programa">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Programa/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Programa/variables"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Programa/definiciones"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Programa/ejecuciones"/>
     </genClasses>
     <genClasses ecoreClass="PR.ecore#//Variable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Variable/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Variable/expr"/>
     </genClasses>
     <genClasses ecoreClass="PR.ecore#//Definicion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Definicion/name"/>
@@ -29,6 +27,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//IntValue/val"/>
     </genClasses>
     <genClasses ecoreClass="PR.ecore#//IntExpr"/>
+    <genClasses ecoreClass="PR.ecore#//VariableRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PR.ecore#//VariableRef/var"/>
+    </genClasses>
     <genClasses ecoreClass="PR.ecore#//Sum">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Sum/value"/>
     </genClasses>
@@ -39,15 +40,24 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Res/value"/>
     </genClasses>
     <genClasses ecoreClass="PR.ecore#//Div">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Div/value1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//Div/value"/>
     </genClasses>
     <genClasses ecoreClass="PR.ecore#//StringExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//StringExpr/str"/>
     </genClasses>
-    <genClasses ecoreClass="PR.ecore#//BooleanExpr"/>
-    <genClasses ecoreClass="PR.ecore#//ExprValue">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//ExprValue/exp"/>
+    <genClasses ecoreClass="PR.ecore#//BooleanExpr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//BooleanExpr/boolean"/>
     </genClasses>
+    <genClasses ecoreClass="PR.ecore#//CheckBoolExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//CheckBoolExpr/e"/>
+    </genClasses>
+    <genClasses ecoreClass="PR.ecore#//EqualsBoolExpr"/>
+    <genClasses ecoreClass="PR.ecore#//MenorBoolExpr"/>
+    <genClasses ecoreClass="PR.ecore#//MayorBoolExpr"/>
+    <genClasses ecoreClass="PR.ecore#//IsEmptyExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//IsEmptyExpr/arg"/>
+    </genClasses>
+    <genClasses ecoreClass="PR.ecore#//ReadExpr"/>
     <genClasses ecoreClass="PR.ecore#//CallExpr">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PR.ecore#//CallExpr/definicion"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//CallExpr/parametros"/>
@@ -56,26 +66,26 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PR.ecore#//RefVariable/ref"/>
     </genClasses>
     <genClasses ecoreClass="PR.ecore#//IfExpr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//IfExpr/IfExpr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//IfExpr/IfTrue"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//IfExpr/IfFalse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//IfExpr/e"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//IfExpr/trueE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//IfExpr/falseE"/>
     </genClasses>
     <genClasses ecoreClass="PR.ecore#//ListExpr"/>
-    <genClasses ecoreClass="PR.ecore#//ListValue">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//ListValue/Expr"/>
+    <genClasses ecoreClass="PR.ecore#//ConsList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//ConsList/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//ConsList/list"/>
     </genClasses>
-    <genClasses ecoreClass="PR.ecore#//ComplexListExpr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//ComplexListExpr/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//ComplexListExpr/expr"/>
+    <genClasses ecoreClass="PR.ecore#//ListList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//ListList/params"/>
     </genClasses>
-    <genClasses ecoreClass="PR.ecore#//ListOp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//ListOp/op"/>
+    <genClasses ecoreClass="PR.ecore#//CarList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//CarList/list"/>
     </genClasses>
-    <genClasses ecoreClass="PR.ecore#//Car">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Car/car"/>
+    <genClasses ecoreClass="PR.ecore#//CdrList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PR.ecore#//CdrList/list"/>
     </genClasses>
-    <genClasses ecoreClass="PR.ecore#//Cdr">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PR.ecore#//Cdr/cdr"/>
+    <genClasses ecoreClass="PR.ecore#//LengthList">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PR.ecore#//LengthList/list"/>
     </genClasses>
     <genClasses ecoreClass="PR.ecore#//WhileExpr">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PR.ecore#//WhileExpr/expresiones"/>

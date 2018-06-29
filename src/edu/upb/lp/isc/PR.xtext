@@ -6,13 +6,12 @@ Programa:
 	';' 'Author:' STRING
 	';' name=ID	
 	(definiciones+=Definicion)*
-	('?' ejecuciones+=(Expresion))*
+	('?' ejecuciones+=Expresion)*
 	//|'('Expresion')'
 ;
 
 
 Variable:
-	//(define id expr)
 	name=ID
 ;
 
@@ -34,7 +33,7 @@ Definicion:
 //	')'
 //;
 Expresion:
-	(IntExpr | StringExpr | BooleanExpr | 
+	(IntExpr | StringExpr | BooleanExpr | CheckBoolExpr | 
 	IfExpr | CallExpr | ListExpr | RefVariable | ReadExpr)
 ;
 
@@ -79,21 +78,39 @@ StringExpr:
 ;
 
 BooleanExpr:
-	{BooleanExpr}
-	('true' | 'false')
+	boolean = ('true' | 'false')
 ;
 
-ExprValue:
-	exp = Expresion
+CheckBoolExpr:
+	(EqualsBoolExpr | MenorBoolExpr | MayorBoolExpr)	
+;
+
+EqualsBoolExpr:
+//	{EqualsBoolExpr}
+	'(''=' e+=Expresion e+=Expresion+')'
+;
+
+MenorBoolExpr:
+	'(''<' e+=Expresion e+=Expresion+')'
+;
+
+MayorBoolExpr:
+	'(''>' e+=Expresion e+=Expresion+')'
+;
+
+IsEmptyExpr:
+//	{IsEmptyExpr}
+	'(''isEmpty' arg=ListExpr')'
 ;
 
 ReadExpr:
-	ID
+	{ReadExpr}
+	'read'
 ;
 //////////////
 
 CallExpr:
-	'('definicion=[Definicion] parametros+=(Expresion)*')'
+	'('definicion=[Definicion] parametros+=Expresion*')'
 ;
 
 
@@ -102,49 +119,45 @@ RefVariable:
 ;
 
 IfExpr:
-	{IfExpr}
-	//TODO hacer un if
-	'('
-	
-	IfExpr=BooleanExpr IfTrue=BooleanExpr IfFalse=BooleanExpr
-	//nani
+	//{IfExpr}
+	'(''if'	
+		'('e=Expresion')' trueE+=Expresion falseE=Expresion
 	')'
 ;
 
 ListExpr:
-	//ConsValue|
-	ListValue|ComplexListExpr
-
+	ConsList|
+	ListList|
+	CarList|
+	CdrList|
+	LengthList
 ;
 
-/* 
-ConsValue:
-	{ConsValue}
-	'(''cons' '\''(expr+=Expresion)* (expr+=Expresion)*')'
-;
-*/
-
-
-ListValue:
-	{ListValue}
-	'(''list' (Expr+=Expresion
-		     (','Expr+=Expresion)*)?  ')'
+ConsList:
+	//{ConsList}
+	'(''cons' expr+=Expresion '\''list=ListExpr')'
 ;
 
-ComplexListExpr:
-		'(' op=ListOp (expr+=ListExpr)*')'
+ListList:
+	{ListList}
+	'(' 'list' params+=Expresion*')'
 ;
 
-ListOp:
-//	op=('car'|'cdr'|'length')
-op=(Car|Cdr)
+CarList:
+	//{CarList}
+	'(''car' list=ListExpr')'
 ;
-Car:
-	car='car'
+
+CdrList:
+	//{CdrList}
+	'(''cdr'list=ListExpr')'
 ;
-Cdr:
-	cdr='cdr'
+
+LengthList:
+	//{LengthList}
+	'(''length' list=[Variable]')'
 ;
+
 
 WhileExpr:
 	'while''('/*boolean expr*/')''{'

@@ -87,6 +87,15 @@ public interface PRFactory extends EFactory
   IntExpr createIntExpr();
 
   /**
+   * Returns a new object of class '<em>Variable Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable Ref</em>'.
+   * @generated
+   */
+  VariableRef createVariableRef();
+
+  /**
    * Returns a new object of class '<em>Sum</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -141,13 +150,58 @@ public interface PRFactory extends EFactory
   BooleanExpr createBooleanExpr();
 
   /**
-   * Returns a new object of class '<em>Expr Value</em>'.
+   * Returns a new object of class '<em>Check Bool Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expr Value</em>'.
+   * @return a new object of class '<em>Check Bool Expr</em>'.
    * @generated
    */
-  ExprValue createExprValue();
+  CheckBoolExpr createCheckBoolExpr();
+
+  /**
+   * Returns a new object of class '<em>Equals Bool Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Equals Bool Expr</em>'.
+   * @generated
+   */
+  EqualsBoolExpr createEqualsBoolExpr();
+
+  /**
+   * Returns a new object of class '<em>Menor Bool Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Menor Bool Expr</em>'.
+   * @generated
+   */
+  MenorBoolExpr createMenorBoolExpr();
+
+  /**
+   * Returns a new object of class '<em>Mayor Bool Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mayor Bool Expr</em>'.
+   * @generated
+   */
+  MayorBoolExpr createMayorBoolExpr();
+
+  /**
+   * Returns a new object of class '<em>Is Empty Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Is Empty Expr</em>'.
+   * @generated
+   */
+  IsEmptyExpr createIsEmptyExpr();
+
+  /**
+   * Returns a new object of class '<em>Read Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Read Expr</em>'.
+   * @generated
+   */
+  ReadExpr createReadExpr();
 
   /**
    * Returns a new object of class '<em>Call Expr</em>'.
@@ -186,49 +240,49 @@ public interface PRFactory extends EFactory
   ListExpr createListExpr();
 
   /**
-   * Returns a new object of class '<em>List Value</em>'.
+   * Returns a new object of class '<em>Cons List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>List Value</em>'.
+   * @return a new object of class '<em>Cons List</em>'.
    * @generated
    */
-  ListValue createListValue();
+  ConsList createConsList();
 
   /**
-   * Returns a new object of class '<em>Complex List Expr</em>'.
+   * Returns a new object of class '<em>List List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Complex List Expr</em>'.
+   * @return a new object of class '<em>List List</em>'.
    * @generated
    */
-  ComplexListExpr createComplexListExpr();
+  ListList createListList();
 
   /**
-   * Returns a new object of class '<em>List Op</em>'.
+   * Returns a new object of class '<em>Car List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>List Op</em>'.
+   * @return a new object of class '<em>Car List</em>'.
    * @generated
    */
-  ListOp createListOp();
+  CarList createCarList();
 
   /**
-   * Returns a new object of class '<em>Car</em>'.
+   * Returns a new object of class '<em>Cdr List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Car</em>'.
+   * @return a new object of class '<em>Cdr List</em>'.
    * @generated
    */
-  Car createCar();
+  CdrList createCdrList();
 
   /**
-   * Returns a new object of class '<em>Cdr</em>'.
+   * Returns a new object of class '<em>Length List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Cdr</em>'.
+   * @return a new object of class '<em>Length List</em>'.
    * @generated
    */
-  Cdr createCdr();
+  LengthList createLengthList();
 
   /**
    * Returns a new object of class '<em>While Expr</em>'.

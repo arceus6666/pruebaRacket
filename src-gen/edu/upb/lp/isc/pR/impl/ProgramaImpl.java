@@ -7,7 +7,6 @@ import edu.upb.lp.isc.pR.Definicion;
 import edu.upb.lp.isc.pR.Expresion;
 import edu.upb.lp.isc.pR.PRPackage;
 import edu.upb.lp.isc.pR.Programa;
-import edu.upb.lp.isc.pR.Variable;
 
 import java.util.Collection;
 
@@ -34,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link edu.upb.lp.isc.pR.impl.ProgramaImpl#getName <em>Name</em>}</li>
- *   <li>{@link edu.upb.lp.isc.pR.impl.ProgramaImpl#getVariables <em>Variables</em>}</li>
  *   <li>{@link edu.upb.lp.isc.pR.impl.ProgramaImpl#getDefiniciones <em>Definiciones</em>}</li>
  *   <li>{@link edu.upb.lp.isc.pR.impl.ProgramaImpl#getEjecuciones <em>Ejecuciones</em>}</li>
  * </ul>
@@ -62,16 +60,6 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVariables()
-   * @generated
-   * @ordered
-   */
-  protected EList<Variable> variables;
 
   /**
    * The cached value of the '{@link #getDefiniciones() <em>Definiciones</em>}' containment reference list.
@@ -142,20 +130,6 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Variable> getVariables()
-  {
-    if (variables == null)
-    {
-      variables = new EObjectContainmentEList<Variable>(Variable.class, this, PRPackage.PROGRAMA__VARIABLES);
-    }
-    return variables;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Definicion> getDefiniciones()
   {
     if (definiciones == null)
@@ -189,8 +163,6 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
   {
     switch (featureID)
     {
-      case PRPackage.PROGRAMA__VARIABLES:
-        return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
       case PRPackage.PROGRAMA__DEFINICIONES:
         return ((InternalEList<?>)getDefiniciones()).basicRemove(otherEnd, msgs);
       case PRPackage.PROGRAMA__EJECUCIONES:
@@ -211,8 +183,6 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
     {
       case PRPackage.PROGRAMA__NAME:
         return getName();
-      case PRPackage.PROGRAMA__VARIABLES:
-        return getVariables();
       case PRPackage.PROGRAMA__DEFINICIONES:
         return getDefiniciones();
       case PRPackage.PROGRAMA__EJECUCIONES:
@@ -234,10 +204,6 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
     {
       case PRPackage.PROGRAMA__NAME:
         setName((String)newValue);
-        return;
-      case PRPackage.PROGRAMA__VARIABLES:
-        getVariables().clear();
-        getVariables().addAll((Collection<? extends Variable>)newValue);
         return;
       case PRPackage.PROGRAMA__DEFINICIONES:
         getDefiniciones().clear();
@@ -264,9 +230,6 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
       case PRPackage.PROGRAMA__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case PRPackage.PROGRAMA__VARIABLES:
-        getVariables().clear();
-        return;
       case PRPackage.PROGRAMA__DEFINICIONES:
         getDefiniciones().clear();
         return;
@@ -289,8 +252,6 @@ public class ProgramaImpl extends MinimalEObjectImpl.Container implements Progra
     {
       case PRPackage.PROGRAMA__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case PRPackage.PROGRAMA__VARIABLES:
-        return variables != null && !variables.isEmpty();
       case PRPackage.PROGRAMA__DEFINICIONES:
         return definiciones != null && !definiciones.isEmpty();
       case PRPackage.PROGRAMA__EJECUCIONES:
