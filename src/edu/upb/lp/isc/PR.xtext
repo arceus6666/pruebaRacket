@@ -24,17 +24,13 @@ Definicion:
 	')'
 ;
 
-//Definicion:
-//	{Definicion}
-//	//(define (head args) body ...+)
-//	//value = (STRING | 'TRUE' | 'FALSE')
-//	'(''define''('name=ID (args+=Argumento)*')'
-//		'('definicion=[Definicion] (valores+=Expresion)+')'
-//	')'
-//;
 Expresion:
-	(IntExpr | StringExpr | BooleanExpr | CheckBoolExpr | 
-	IfExpr | CallExpr | ListExpr | RefVariable | ReadExpr)
+	IntExpr | StringExpr | BooleanExpr |
+	ListExpr | ReadExpr | UnknownExpr
+;
+
+UnknownExpr:
+	CarList| CallExpr | IfExpr | WhileExpr | RefVariable
 ;
 
 //Statics
@@ -47,30 +43,23 @@ IntValue:
 ;
 
 IntExpr:
-	IntValue | Sum | Mult | Res | Div
+	IntValue | Sum | Mult | Res | Div | LengthList
 ;
 
-VariableRef:
-	var=[Variable]
-;
 Sum:
-	{Sum}
-	'(''+' value+=(IntExpr|CallExpr|VariableRef)*')'
+	'(''+' value+=(IntExpr|CallExpr|RefVariable)+')'
 ;
 
 Mult:
-	{Mult}
-	'(''*' value+=(IntExpr|CallExpr|VariableRef)*')'
+	'(''*' value+=(IntExpr|CallExpr|RefVariable)+')'
 ;
 
 Res:
-	{Res}
-	'(''-' value+=(IntExpr|CallExpr|VariableRef)*')'
+	'(''-' value+=(IntExpr|CallExpr|RefVariable)+')'
 ;
 
 Div:
-	{Div}
-	'(''/' value+=(IntExpr|CallExpr|VariableRef)*')'
+	'(''/' value+=(IntExpr|CallExpr|RefVariable)+')'
 ;
 
 StringExpr:
@@ -78,6 +67,10 @@ StringExpr:
 ;
 
 BooleanExpr:
+	BoolValue | CheckBoolExpr
+;
+
+BoolValue:
 	boolean = ('true' | 'false')
 ;
 
@@ -87,30 +80,25 @@ CheckBoolExpr:
 
 EqualsBoolExpr:
 //	{EqualsBoolExpr}
-	'(''=' e+=Expresion e+=Expresion+')'
+	'(''=' e1=Expresion e2=Expresion')'
 ;
 
 MenorBoolExpr:
-	'(''<' e+=Expresion e+=Expresion+')'
+	'(''<' e1=Expresion e2=Expresion')'
 ;
 
 MayorBoolExpr:
-	'(''>' e+=Expresion e+=Expresion+')'
-;
-
-IsEmptyExpr:
-//	{IsEmptyExpr}
-	'(''isEmpty' arg=ListExpr')'
+	'(''>' e1=Expresion e2=Expresion')'
 ;
 
 ReadExpr:
 	{ReadExpr}
-	'read'
+	'(''read'')'
 ;
 //////////////
 
 CallExpr:
-	'('definicion=[Definicion] parametros+=Expresion*')'
+	'('definicion=[Definicion] parametros+=Expresion+')'
 ;
 
 
@@ -121,80 +109,39 @@ RefVariable:
 IfExpr:
 	//{IfExpr}
 	'(''if'	
-		'('e=Expresion')' trueE+=Expresion falseE=Expresion
+		e=Expresion trueE=Expresion falseE=Expresion
 	')'
 ;
 
 ListExpr:
-	ConsList|
-	ListList|
-	CarList|
-	CdrList|
-	LengthList
+	ConsList |
+	ListList |
+	CdrList
 ;
 
 ConsList:
-	//{ConsList}
-	'(''cons' expr+=Expresion '\''list=ListExpr')'
+	'(''cons' expr+=Expresion list=ListExpr')'
 ;
 
 ListList:
 	{ListList}
-	'(' 'list' params+=Expresion*')'
+	'(''list' params+=Expresion*')'
 ;
 
+//devuelve la cabeza de una lista
 CarList:
-	//{CarList}
-	'(''car' list=ListExpr')'
+	'(''car' list=(ListExpr|UnknownExpr)')'
 ;
 
+//devuelve la cola de una lista (es una lista)
 CdrList:
-	//{CdrList}
-	'(''cdr'list=ListExpr')'
+	'(''cdr' list=(ListExpr|UnknownExpr)')'
 ;
 
 LengthList:
 	//{LengthList}
 	'(''length' list=[Variable]')'
 ;
-
-/*
-Operacion:
-	('+' | '-' | '*' | '/') args+=(IntExpr|CallExpr|VariableRef)+
-;
-
-Sum:
-	{Sum}
-	'+' args+=(IntExpr|CallExpr|VariableRef)+
-;
-
-Mult:
-	{Mult}
-	'*' args+=(IntExpr|CallExpr|VariableRef)+
-;
-
-Res:
-	{Res}
-	'-' args+=(IntExpr|CallExpr|VariableRef)+
-;
-
-Div:
-	{Div}
-	'/' args+=(IntExpr|CallExpr|VariableRef)+
-;
-EqualsBoolExpr:
-	'=' args+=Expresion args+=Expresion+
-;
-
-MenorBoolExpr:
-	'<' args+=Expresion args+=Expresion+
-;
-
-MayorBoolExpr:
-	'>' args+=Expresion args+=Expresion+
-;
-
-*/
 
 
 WhileExpr:
