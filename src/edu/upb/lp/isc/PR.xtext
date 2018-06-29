@@ -158,6 +158,44 @@ LengthList:
 	'(''length' list=[Variable]')'
 ;
 
+/*
+Operacion:
+	('+' | '-' | '*' | '/') args+=(IntExpr|CallExpr|VariableRef)+
+;
+
+Sum:
+	{Sum}
+	'+' args+=(IntExpr|CallExpr|VariableRef)+
+;
+
+Mult:
+	{Mult}
+	'*' args+=(IntExpr|CallExpr|VariableRef)+
+;
+
+Res:
+	{Res}
+	'-' args+=(IntExpr|CallExpr|VariableRef)+
+;
+
+Div:
+	{Div}
+	'/' args+=(IntExpr|CallExpr|VariableRef)+
+;
+EqualsBoolExpr:
+	'=' args+=Expresion args+=Expresion+
+;
+
+MenorBoolExpr:
+	'<' args+=Expresion args+=Expresion+
+;
+
+MayorBoolExpr:
+	'>' args+=Expresion args+=Expresion+
+;
+
+*/
+
 
 WhileExpr:
 	'while''('/*boolean expr*/')''{'
