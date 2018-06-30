@@ -3,6 +3,9 @@
  */
 package edu.upb.lp.isc.validation
 
+import edu.upb.lp.isc.pR.PRPackage
+import edu.upb.lp.isc.pR.Programa
+import org.eclipse.xtext.validation.Check
 
 /**
  * This class contains custom validation rules. 
@@ -21,5 +24,12 @@ class PRValidator extends AbstractPRValidator {
 //					INVALID_NAME)
 //		}
 //	}
+
+	@Check
+	def programHasMoreThan3Definitions(Programa pr) {
+		if (pr.definiciones.length < 3) {
+			error("Malo malo", PRPackage.Literals.PROGRAMA__DEFINICIONES)
+		} 
+	}
 	
 }
