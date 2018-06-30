@@ -5,8 +5,8 @@ generate pR "http://www.upb.edu/lp/isc/PR"
 Programa:
 	';' 'Author:' STRING
 	';' name=ID	
-	(definiciones+=Definicion)*
-	('?' ejecuciones+=Expresion)*
+	(definiciones+=SuperDefinicion)*
+	('?' ejecuciones+=CallExpr)*
 	//|'('Expresion')'
 ;
 
@@ -16,12 +16,23 @@ Variable:
 ;
 
 Definicion:
-	{Definicion}
+	//{Definicion}
 	//(define (head args) body ...+)
 	//value = (STRING | 'TRUE' | 'FALSE')
-	'(''define''('name=ID (args+=Variable)*')'
+	'(''define''('name=ID args+=Variable*')'
 		e=Expresion
 	')'
+;
+
+Let:
+   //(  let  ( [id val-expr] ...) body ...+)
+	'(' 'let' '(' localVars+=VariableLocal+')'
+		body=Expresion
+	')'
+;
+
+VariableLocal:
+	'('name=ID arg=Expresion')'
 ;
 
 Expresion:
@@ -30,7 +41,7 @@ Expresion:
 ;
 
 UnknownExpr:
-	CarList| CallExpr | IfExpr | WhileExpr | RefVariable
+	CarList| CallExpr | IfExpr | WhileExpr | RefVariable | Let
 ;
 
 //Statics
@@ -75,7 +86,8 @@ BoolValue:
 ;
 
 CheckBoolExpr:
-	(EqualsBoolExpr | MenorBoolExpr | MayorBoolExpr)	
+	EqualsBoolExpr | MenorBoolExpr | MayorBoolExpr |
+	MayorEqBoolExpr | MenorEqBoolExpr	
 ;
 
 EqualsBoolExpr:
@@ -91,19 +103,34 @@ MayorBoolExpr:
 	'(''>' e1=Expresion e2=Expresion')'
 ;
 
+MenorEqBoolExpr:
+	'(''<=' e1=Expresion e2=Expresion')'
+;
+
+MayorEqBoolExpr:
+	'(''>=' e1=Expresion e2=Expresion')'
+;
+
 ReadExpr:
 	{ReadExpr}
 	'(''read'')'
 ;
 //////////////
 
-CallExpr:
-	'('definicion=[Definicion] parametros+=Expresion+')'
+SuperDefinicion:
+	Definicion | Let
 ;
 
+CallExpr:
+	'('definicion=[SuperDefinicion] parametros+=Expresion+')'
+;
+
+SuperVariable:
+	Variable | VariableLocal
+;
 
 RefVariable:
-	ref = [Variable]
+	ref = [SuperVariable]
 ;
 
 IfExpr:
@@ -116,11 +143,17 @@ IfExpr:
 ListExpr:
 	ConsList |
 	ListList |
-	CdrList
+	CdrList |
+	ListValue
+;
+
+ListValue:
+	{ListValue}
+	'`''('values+=Expresion*')'
 ;
 
 ConsList:
-	'(''cons' expr+=Expresion list=ListExpr')'
+	'(''cons' expr+=Expresion list=(ListExpr|UnknownExpr)')'
 ;
 
 ListList:
@@ -140,7 +173,7 @@ CdrList:
 
 LengthList:
 	//{LengthList}
-	'(''length' list=[Variable]')'
+	'(''length' list=(ListExpr|UnknownExpr)')'
 ;
 
 
